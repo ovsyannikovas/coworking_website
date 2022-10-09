@@ -26,7 +26,6 @@
 
 ### 4. Загружаем изменения из своей ветки в `main`
 * Заходим в [наш репозиторий](https://github.com/ovsyannikovas/coworking_website)
-* Нажимаем **Code** и копируем ссылку
 * Заходим в **Pull requests**
 * Нажимаем **New pull request**
 * Выбираем **base:main -> compare:ваша_ветка**
