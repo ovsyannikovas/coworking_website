@@ -1,0 +1,134 @@
+.main-color{
+	background-color: #0F0068;
+}
+
+body{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.back-color{
+	background-color: #FFFFFF;
+}
+
+.images{
+	border-radius: 100px;
+	opacity: 0.5;
+}
+
+.navbar-brand{
+	color: #FFFFFF;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+	padding-right: 450px;
+	padding-left: 15px;
+
+}
+
+.nav-item{
+	color: #FFFFFF;
+	padding-right: 70px;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+/*FORM*/
+.auth_form h2{
+	text-align: center;
+}
+
+.auth_form {
+	margin: 0 auto;
+	background-color: #D9D9D9;
+	border-radius: 100px;
+	height: 636px;
+	width:636px;
+	padding-bottom: 100px;
+}
+
+.reg_form {
+	margin: 0 auto;
+	background-color: #D9D9D9;
+	border-radius: 100px;
+	height: 1140px;
+	width:636px;
+}
+
+.form-title{
+	padding-top: 16px;
+	padding-bottom: 38px;
+	text-align: center;
+	color: #0F0068;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 44px;
+}
+
+.group{
+	text-align: center;
+}
+
+.forms-label{
+	padding-left: 110px;
+	padding-right: 454px;
+	color: #0F0068;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.group input{
+	margin-top: 14px;
+	margin-bottom: 50px;
+	border-radius: 100px;
+	width: 416px;
+	height:60px;
+	background: #C6C6C6;
+	border: 2px solid #B0B0B0;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	color: #0F0068;
+	text-indent: 30px;
+}
+
+.group input[type="login"]:focus, .group input[type="password"]:focus{
+	border: 2px solid rgba(15, 0, 104, 0.5);
+	outline: none;
+}
+
+.first-btn{
+	border-radius: 100px;
+	width: 416px;
+	height: 60px;
+	background: #0F0068;
+	color: #FFFFFF;
+	border: 0;
+	margin-top: 25px;
+	margin-bottom: 35px;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 27px;
+}
+
+.second-btn{
+	border-radius: 100px;
+	width: 416px;
+	height: 60px;
+	background: #B4B2B2;
+	color: #0F0068;
+	border: 0;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 27px;
+} 
+
+.second-btn:hover{
+	background: rgba(180, 178, 178, 0.8);
+}
+
+.first-btn:hover{
+	background: rgba(15, 0, 104, 0.95);
+}
+
