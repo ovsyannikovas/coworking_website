@@ -26,11 +26,14 @@ body{
 }
 
 .nav-item{
-	color: #FFFFFF;
 	padding-right: 70px;
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 24px;
+}
+
+.nav-item:hover{
+	color: #B0B0B0;
 }
 
 /*FORM*/
@@ -42,16 +45,23 @@ body{
 	margin: 0 auto;
 	background-color: #D9D9D9;
 	border-radius: 100px;
-	height: 636px;
+	height: 605px;
 	width:636px;
-	padding-bottom: 100px;
 }
 
 .reg_form {
 	margin: 0 auto;
 	background-color: #D9D9D9;
 	border-radius: 100px;
-	height: 1140px;
+	height: 1120px;
+	width:636px;
+}
+
+.staff-form{
+	margin: 0 auto;
+	background-color: #D9D9D9;
+	border-radius: 100px;
+	height: 370px;
 	width:636px;
 }
 
@@ -65,20 +75,19 @@ body{
 	line-height: 44px;
 }
 
-.group{
-	text-align: center;
-}
-
 .forms-label{
 	padding-left: 110px;
-	padding-right: 454px;
+	padding-right: 50px;
 	color: #0F0068;
 	font-weight: 500;
 	font-size: 18px;
 	line-height: 22px;
 }
 
-.group input{
+form input{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 14px;
 	margin-bottom: 50px;
 	border-radius: 100px;
@@ -93,12 +102,17 @@ body{
 	text-indent: 30px;
 }
 
-.group input[type="login"]:focus, .group input[type="password"]:focus{
+form input[type="name"]:focus, form input[type="surname"]:focus,
+form input[type="datetext"]:focus, form input[type="email"]:focus,
+form input[type="password"]:focus, form input[type="login"]:focus{
 	border: 2px solid rgba(15, 0, 104, 0.5);
 	outline: none;
 }
 
 .first-btn{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	border-radius: 100px;
 	width: 416px;
 	height: 60px;
@@ -112,7 +126,11 @@ body{
 	line-height: 27px;
 }
 
+/*FORM BTNS*/
 .second-btn{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	border-radius: 100px;
 	width: 416px;
 	height: 60px;
@@ -132,3 +150,179 @@ body{
 	background: rgba(15, 0, 104, 0.95);
 }
 
+/*RADIO*/
+.radio{
+	padding-left: 30px;
+	margin-bottom: 38px;
+	position: relative;
+}
+
+.radio-input{
+	all:unset;
+	-webkit-appearance: none;
+	appearance: none;
+	position: absolute;
+}
+
+.radio-label{
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #0F0068;
+}
+
+.radio-label:before{
+	margin-top: 5px;
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+
+	border: 1px solid #B0B0B0;
+	background-color: #C6C6C6;
+	border-radius: 50%;
+
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.radio-label:after{
+	margin-top: 8px;
+	margin-left: 3px;
+	content: "";
+	display: block;
+	width: 10px;
+	height: 10px;
+
+	background-color: #0F0068;
+	border-radius: 50%;
+	opacity: 0;
+
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.radio-input:checked + .radio-label:after{
+	opacity: 1;
+}
+
+
+
+
+/*CHECKBOX*/
+.checkbox{
+	position: relative;
+	margin-bottom: 38px;
+}
+
+.checkbox-input{
+	-webkit-appearance: none;
+	appearance: none;
+	position: absolute;
+}
+
+.checkbox-label{
+	padding-left: 140px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #0F0068;
+}
+
+.checkbox-label:before{
+	margin-top: 5px;
+	margin-left: 110px;
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+
+	border: 1px solid #B0B0B0;
+	background-color: #C6C6C6;
+	border-radius: 5px;
+
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.checkbox-label:after{
+	margin-top: 5px;
+	margin-left: 110px;
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+
+	background: url("/coworking/event/static/event/images/checkbox.svg") no-repeat;
+	background-size: 16px 16px;
+	opacity: 0;
+
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.checkbox input{
+	all: unset;
+}
+
+.checkbox-input:checked + .checkbox-label:after{
+	opacity: 1;
+}
+
+/*FOOTER*/
+footer{
+	margin-top: 100px;
+	position: absolute;
+	color: #FFFFFF;
+    width: 100%;
+    background: #02051F;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-menu{
+	position: fixed;
+	background-color: #02051F;
+	position: relative;
+	flex-wrap: wrap;
+	display: flex;
+	padding-left: 180px;
+}
+
+.footer-item{
+	display: block;
+}
+
+.footer-link {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 24px;
+	margin-right: 200px;
+	display: block;
+	padding-top: 20px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.footer-link:hover{
+	color: #B0B0B0;
+}
+
+.footer-info{
+	display: block;
+	color: #FFFFFF;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	padding-left: 180px;
+	background-color: #02051F;
+}
