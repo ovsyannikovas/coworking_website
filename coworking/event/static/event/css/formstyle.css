@@ -15,14 +15,14 @@ body{
 	opacity: 0.5;
 }
 
-.navbar-brand{
+/*NAVBAR*/
+.nav-brand{
 	color: #FFFFFF;
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 24px;
 	padding-right: 450px;
 	padding-left: 15px;
-
 }
 
 .nav-item{
@@ -32,9 +32,24 @@ body{
 	line-height: 24px;
 }
 
-.nav-item:hover{
-	color: #B0B0B0;
+.nav-brand a, .nav-item a, .nav-brand a:hover{
+	color: #FFFFFF;
 }
+
+.nav-item a:hover{
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-lk a{
+	background-image: url(/coworking/event/static/event/images/lkbtn.svg);
+	height: 30px;
+	width: 30px;
+}
+
+.nav-lk a:hover{
+	background-image: url(/coworking/event/static/event/images/lkbtnafter.svg);
+}
+
 
 /*FORM*/
 .auth_form h2{
@@ -147,7 +162,7 @@ form input[type="password"]:focus, form input[type="login"]:focus{
 }
 
 .first-btn:hover{
-	background: rgba(15, 0, 104, 0.95);
+	background: rgba(15, 0, 104, 0.92);
 }
 
 /*RADIO*/
@@ -208,6 +223,42 @@ form input[type="password"]:focus, form input[type="login"]:focus{
 
 .radio-input:checked + .radio-label:after{
 	opacity: 1;
+}
+
+.checkbox-label:before{
+	margin-top: 5px;
+	margin-left: 110px;
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+
+	border: 1px solid #B0B0B0;
+	background-color: #C6C6C6;
+	border-radius: 5px;
+
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.checkbox-label:after{
+	margin-top: 5px;
+	margin-left: 110px;
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+
+	background: url("/coworking/event/static/event/images/checkbox.svg") no-repeat;
+	background-size: 16px 16px;
+	opacity: 0;
+
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
 }
 
 
@@ -284,45 +335,38 @@ footer{
 	color: #FFFFFF;
     width: 100%;
     background: #02051F;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 
 .footer-menu{
-	position: fixed;
-	background-color: #02051F;
-	position: relative;
-	flex-wrap: wrap;
-	display: flex;
-	padding-left: 180px;
+    background-color: #02051F;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .footer-item{
-	display: block;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 24px;
+    display: block;
+}
+
+.footer-menu p {
+    font-weight: 450;
+    margin-top: 20px;
+	font-size: 20px;
 }
 
 .footer-link {
-	font-weight: 600;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
 	font-size: 20px;
-	line-height: 24px;
-	margin-right: 200px;
-	display: block;
-	padding-top: 20px;
-	color: #FFFFFF;
-	text-decoration: none;
 }
 
 .footer-link:hover{
-	color: #B0B0B0;
-}
-
-.footer-info{
-	display: block;
-	color: #FFFFFF;
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 22px;
-	padding-left: 180px;
-	background-color: #02051F;
+	color: rgba(255, 255, 255, 0.8);
 }
