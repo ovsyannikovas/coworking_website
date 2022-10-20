@@ -52,41 +52,66 @@
 		</nav>
 	</div><br><br>
 
+			<form class="reg_form" method="post" action="reg.html">
+				<h2 class="form-title">Регистрация</h2>
+				<div>
+					<label for="inputname" class="forms-label">Имя</label>
+					<input type="name" class="forms-control" id="inputname">
+				</div>
+				<div>
+					<label for="inputsurname" class="forms-label">Фамилия</label>
+					<input type="surname" class="forms-control" id="inputsurname">
+				</div>
+
+				<label for="gender" class="forms-label">Пол</label>
+				<div class="radio form-check-inline">
+					<input class="radio-input" type="radio" name="gender" id="radiom">
+					<label class="radio-label" for="radiom">М</label>
+				</div>
+				<div class="radio form-check-inline">
+					<input class="radio-input" type="radio" name="gender" id="radiof">
+					<label class="radio-label" for="radiof">Ж</label>
+				</div>
+
+				<div>
+					<label for="inputdate" class="forms-label">Дата рождения</label>
+					<input type="datetext" class="forms-control" id="inputdate">
+				</div>
+				<div>
+					<label for="inputemail" class="forms-label">E-mail</label>
+					<input type="email" class="forms-control" id="inputemail">
+				</div>
+				<div>
+					<label for="inputpassword" class="forms-label">Пароль</label>
+					<input type="password" class="forms-control" id="inputpassword">
+				</div>
+				<div class="checkbox">
+					<input class="checkbox-input" type="checkbox" id="checkbox1">
+					<label class="checkbox-label" for="checkbox1"> Я согласен(на) на обработку персональных
+					данных <br> и условия участия в проекте </label>
+				</div>
+				<div>
+					<button type="submit" class="first-btn">Регистрация</button>
+				</div>
+			</form>
+
+
+			<footer>
+				<div class="footer-menu container">
+					<div>
+						<a class="footer-link" href="#">Обратиться в тех. поддержку</a>
+						<p>Наш адрес:<br>г. Санкт-Петербург, ул. Чайковского, 43</p>
+					</div>
+					<div class="col-lg-3">
+						<a class="footer-link" href="#">Для организаторов</a>
+					</div>
+					<a class="footer-link" href="#">Для сотрудников</a>
+				</div>
+			</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+	</body>
 	
 
-	<form class="auth_form" method="post" action="auth.html">
-		<h2 class="form-title">Вход</h2>
-		<div>
-			<label for="inputlogin" class="forms-label">Логин</label>
-			<input type="login" class="forms-control" id="inputlogin">
-		</div>
-		<div>
-			<label for="inputpassword" class="forms-label">Пароль</label>
-			<input type="password" class="forms-control" id="inputpassword">
-		</div>
-		<div>
-			<button type="submit" class="first-btn">Войти</button>
-		</div>
-		<div>
-			<button type="submit" class="second-btn">Регистрация</button>
-		</div>
-	</form>
 
-
-	<footer>
-		<div class="footer-menu container">
-			<div>
-				<a class="footer-link" href="#">Обратиться в тех. поддержку</a>
-				<p>Наш адрес:<br>г. Санкт-Петербург, ул. Чайковского, 43</p>
-			</div>
-			<div class="col-lg-3">
-				<a class="footer-link" href="#">Для организаторов</a>
-			</div>
-			<a class="footer-link" href="#">Для сотрудников</a>
-		</div>
-	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-</body>
-
-
-</html>
+	</html>
