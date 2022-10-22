@@ -1,4 +1,14 @@
+
+
 .main-color {
+    background-color: #0F0068;
+}
+
+.other-pages{
+    background-color: white;
+}
+
+.header{
     background-color: #0F0068;
 }
 
@@ -102,6 +112,19 @@ body {
     color: #FFFFFF;
 }
 
+.default-text2{
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #0F0068;
+    text-align: justify;
+}
+
+.default-text3{
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #FFFFFF;
+}
+
 .alignment-cent {
     text-align: center;
 }
@@ -151,44 +174,101 @@ body {
 }
 
 footer{
-	position: absolute;
-	color: #FFFFFF;
-    width: 100%;
+    position: absolute;
+    color: #FFFFFF;
     background: #02051F;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    height: 145px;
+    width: 100%;
 }
 
 .footer-menu{
-	position: fixed;
-	background-color: #02051F;
-	position: relative;
-	flex-wrap: wrap;
-	display: flex;
-	padding-left: 180px;
+    background-color: #02051F;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .footer-item{
-	color: #FFFFFF;
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 24px;
-	margin-right: 200px;
-	display: block;
-	padding-top: 20px;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 24px;
+    display: block;
+}
+
+.footer-menu p {
+    font-weight: 450;
+    margin-top: 20px;
 }
 
 .footer-link {
-	text-decoration: none;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.footer-link:hover {
+    color: white;
 }
 
 .footer-info{
-	display: block;
-	color: #FFFFFF;
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 22px;
-	padding-left: 180px;
-	background-color: #02051F;
+    display: block;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    background-color: #02051F;
 }
+
+.capabilities{
+    background-color: #D9D9D9;
+    border-radius: 20px;
+}
+
+.choice-button{
+    background-color: #0F0068;
+    opacity: 0.75;
+    font-family: 'Montserrat';
+    font-style: normal;
+    border-radius: 40px;
+}
+
+.event-card{
+    height: 200px;
+    background-color: #4B408E;
+    border-radius: 50px;
+}
+
+.category-bar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.icon-events{
+    left: 0px;
+    position: absolute;
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+.registration-button{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    height: 50px;
+    width: 300px;
+    position: absolute;
+    background-color:#D9D9D9;
+    border-radius: 50px;
+    border: 0;
+}
+
