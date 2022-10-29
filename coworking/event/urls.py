@@ -1,6 +1,6 @@
 from django.urls import path
 
-from event.views import home_page, about_page, contacts_page, help_page, events_page, login_page
+from event.views import home_page, about_page, contacts_page, help_page, events_page, LoginUser, successful_auth
 
 urlpatterns = [
     path('', home_page, name='home'),
@@ -13,7 +13,7 @@ urlpatterns = [
     # path('event/<slug:event_slug>/', , name='event') # конкретное событие
 
     # path('register/', RegisterUser.as_view(), name='register'),
-    # path('login/', LoginUser.as_view(), name='login'),
-    path('login/', login_page, name='login'),
+    path('login/', LoginUser.as_view(), name='login'),
     # path('logout/', logout_user, name='logout'),
+    path('login/successful_auth/', successful_auth, name='successful_auth')
 ]
