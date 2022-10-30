@@ -1,0 +1,19 @@
+from django.urls import path
+
+from event.views import home_page, about_page, contacts_page, help_page, events_page, LoginUser, successful_auth
+
+urlpatterns = [
+    path('', home_page, name='home'),
+    path('about/', about_page, name='about'),
+    path('contacts/', contacts_page, name='contacts'),  # страница контакты
+    path('help/', help_page, name='help'),  # страница обращения в поддержку
+
+    path('events/', events_page, name='events'), # все мероприятия
+    # path('events/<slug:cat_slug>', events, name='category'),  # категория мероприятия пока функция-заглушка
+    # path('event/<slug:event_slug>/', , name='event') # конкретное событие
+
+    # path('register/', RegisterUser.as_view(), name='register'),
+    path('login/', LoginUser.as_view(), name='login'),
+    # path('logout/', logout_user, name='logout'),
+    path('login/successful_auth/', successful_auth, name='successful_auth')
+]
