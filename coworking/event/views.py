@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
+from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 
-<<<<<<< Updated upstream
-# Create your views here.
-=======
 from .forms import LoginUserForm
 from .models import *
 from .utils import DataMixin
@@ -52,10 +53,19 @@ def events(request, cat_slug):
 
 def events_page(request):
     events = Event.objects.all()
+    events_number = events.count()
+    events_per_row = 2
+    if (events_number / events_per_row) % 1 != 0:
+        rows_number = events_number // events_per_row + 1
+    else:
+        rows_number = events_number // events_per_row
     context = {
         'events': events,
         'menu': menu,
-        'title': 'Главная страница'
+        'title': 'Главная страница',
+        'events_per_row': events_per_row,
+        'rows_range': range(rows_number),
+        'on_row_range': range(1, events_per_row+1),
     }
     return render(request, 'event/Events_t.html', context=context)
 
@@ -85,4 +95,3 @@ def page_not_found(request, exception):
 
 def successful_auth(request):
     return render(request, 'event/successful_auth_t.html')
->>>>>>> Stashed changes
