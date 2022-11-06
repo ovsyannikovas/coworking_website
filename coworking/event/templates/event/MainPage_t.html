@@ -1,0 +1,111 @@
+{% extends 'event/base.html' %}
+{% load static%}
+{% load count_id_needed %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 ">
+            <div class="box" style="position: absolute; z-index: 2; color: white;">
+                <h1>CoWork</h1>
+                <p class="main-text">Учитесь и работайте с удовольствием в светлых и уютных помещениях, где есть всё
+                    необходимое.</p>
+                <button class="butt1">Регистрация</button>
+            </div>
+            <img src="{% static 'event/images/mainpage2.jpg' %}" width="636" height="420" class="images" style="position:relative; z-index: 1;">
+        </div>
+        <div class="col-lg-6">
+            <div class="box" style="position: absolute; z-index: 2; color: white">
+                <h1>Learn</h1>
+                <p class="main-text">Ходите на бесплатные интересные лекции и мастер-классы, учасвуйте в хакатонах и
+                    учитесь новому.</p>
+                <button class="butt2" href="{% url 'events' %}">Перейти к мероприятиям</button>
+            </div>
+            <img src="{% static 'event/images/mainpage1.jpg' %}" width="636" height="420" class="images" style="position:relative; z-index: 1;">
+        </div>
+    </div>
+</div>
+
+<div>
+    <p class="default-text alignment-cent" style="margin: 10px;">Чтобы участвовать в мероприятиях, необходимо создать
+        аккаунт или войти.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 ">
+            <div class="box-1">
+                <h1 style="color:white; font-family: 'Montserrat';">Мероприятия</h1>
+            </div>
+        </div>
+        <div class="col-lg-6 ">
+            <div class="box-2">
+              <a class="nav-link alignment-right " href="{% url 'events' %}" style="color:white; font-family: 'Montserrat';">Все мероприятия ➔</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="carouselExampleControls" class="carousel slide carousel-box" data-ride="carousel">
+        <div class="carousel-inner" style="justify-content: center;">
+            <div class="carousel-item active">
+                <div class="row">
+                    {% for event in events %}
+                        {% for on_slide_num in on_slide_range %}
+                            {% if event.id == on_slide_num %}
+                                <div class="col-lg-3">
+                                    <a href="#">
+                                        <div class="mycard">
+                                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
+                                            <div style="position: absolute;">
+                                                <p class="default-text" style="margin: 11px 10px;">{{ event.date_time }}</p>
+                                                <p class="default-text" style="margin: 110px 10px;">{{ event.title }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% for slide_num in inactive_slides_range  %}
+                <div class="carousel-item">
+                    <div class="row">
+                        {% for event in events %}
+                            {% for on_slide_num in on_slide_range %}
+                                {% count_id_needed slide_num on_slide_num events_per_slide as id_needed %}
+                                {% if event.id == id_needed %}
+                                    <div class="col-lg-3">
+                                        <a href="#">
+                                            <div class="mycard">
+                                                <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
+                                                <div style="position: absolute;">
+                                                    <p class="default-text" style="margin: 11px 10px;">{{ event.date_time }}</p>
+                                                    <p class="default-text" style="margin: 110px 10px;">{{ event.title }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
