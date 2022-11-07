@@ -1,0 +1,34 @@
+{% extends 'event/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'event/css/formstyle.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block bodyclass %}
+<body class="other-pages">
+{% endblock bodyclass %}
+
+{% block content %}
+<form class="auth_form" method="post">
+    {% csrf_token %}
+    <h2 class="form-title">Вход</h2>
+    {{ form.non_field_errors }}
+    <div>
+        <label for="inputlogin" class="forms-label">{{ form.username.label }}</label>
+        {{ form.username }}
+        <!--			<input type="login" class="forms-control" id="inputlogin">-->
+    </div>
+    <div>
+        <label for="inputpassword" class="forms-label">{{ form.password.label }}</label>
+        {{ form.password }}
+        <!--        <input type="password" class="forms-control" id="inputpassword">-->
+    </div>
+    <div>
+        <button type="submit" class="first-btn">Войти</button>
+    </div>
+    <div>
+        <button type="submit" class="second-btn">Регистрация</button>
+    </div>
+</form>
+{% endblock content %}
