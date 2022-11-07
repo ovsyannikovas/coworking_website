@@ -1,5 +1,6 @@
 {% extends 'event/base.html' %}
 {% load static%}
+{% load count_id_needed %}
 
 {% block content %}
 <div class="container">
@@ -51,161 +52,49 @@
         <div class="carousel-inner" style="justify-content: center;">
             <div class="carousel-item active">
                 <div class="row">
-<!--                    {% for event in events %}-->
-<!--                    <div class="col-lg-3">-->
-<!--                        <a href="#">-->
-<!--                            <div class="mycard">-->
-<!--                                <img class="card-img-top carousel-images" src="{{ event.photo.url }}" style="border-radius: 20px;">-->
-<!--                                <div style="position: absolute;">-->
-<!--                                    <p class="default-text" style="margin: 11px 10px;">{{ event.date_time }}</p>-->
-<!--                                    <p class="default-text" style="margin: 110px 10px;">{{ event.title }}</p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                    {% endfor %}-->
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                                        <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                                        <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
+                    {% for event in events %}
+                        {% for on_slide_num in on_slide_range %}
+                            {% if event.id == on_slide_num %}
+                                <div class="col-lg-3">
+                                    <a href="#">
+                                        <div class="mycard">
+                                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
+                                            <div style="position: absolute;">
+                                                <p class="default-text" style="margin: 11px 10px;">{{ event.date_time }}</p>
+                                                <p class="default-text" style="margin: 110px 10px;">{{ event.title }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
+            {% for slide_num in inactive_slides_range  %}
+                <div class="carousel-item">
+                    <div class="row">
+                        {% for event in events %}
+                            {% for on_slide_num in on_slide_range %}
+                                {% count_id_needed slide_num on_slide_num events_per_slide as id_needed %}
+                                {% if event.id == id_needed %}
+                                    <div class="col-lg-3">
+                                        <a href="#">
+                                            <div class="mycard">
+                                                <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
+                                                <div style="position: absolute;">
+                                                    <p class="default-text" style="margin: 11px 10px;">{{ event.date_time }}</p>
+                                                    <p class="default-text" style="margin: 110px 10px;">{{ event.title }}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                    <div class="col-lg-3">
-                      <a href="#">
-                        <div class="mycard">
-                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                            <div style="position: absolute;">
-                                <p class="default-text" style="margin: 11px 10px;">15 октября, 18:30</p>
-                                <p class="default-text" style="margin: 110px 10px;">Начало курса лекций</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -18,10 +18,19 @@ menu = [
 
 def home_page(request):
     events = Event.objects.all()
+    events_number = events.count()
+    events_per_slide = 4
+    if (events_number/events_per_slide) % 1 != 0:
+        slides_number = events_number//events_per_slide + 1
+    else:
+        slides_number = events_number // events_per_slide
     context = {
         'events': events,
         'menu': menu,
-        'title': 'Главная страница'
+        'title': 'Главная страница',
+        'events_per_slide': events_per_slide,
+        'inactive_slides_range': range(1, slides_number),
+        'on_slide_range': range(1, events_per_slide + 1)
     }
     return render(request, 'event/MainPage_t.html', context=context)
 
@@ -44,10 +53,19 @@ def events(request, cat_slug):
 
 def events_page(request):
     events = Event.objects.all()
+    events_number = events.count()
+    events_per_row = 2
+    if (events_number / events_per_row) % 1 != 0:
+        rows_number = events_number // events_per_row + 1
+    else:
+        rows_number = events_number // events_per_row
     context = {
         'events': events,
         'menu': menu,
-        'title': 'Главная страница'
+        'title': 'Главная страница',
+        'events_per_row': events_per_row,
+        'rows_range': range(rows_number),
+        'on_row_range': range(1, events_per_row+1),
     }
     return render(request, 'event/Events_t.html', context=context)
 
