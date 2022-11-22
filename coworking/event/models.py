@@ -8,7 +8,7 @@ class Event(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     content = models.TextField(blank=True, verbose_name="Текст статьи")
     # отредактировать путь для фото?
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True, verbose_name="Фото")
     date_time = models.DateTimeField(verbose_name="Время проведения мероприятия")
     organizer = models.CharField(max_length=255, verbose_name="Организатор")
     # organizer = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name="Организатор")
