@@ -20,11 +20,10 @@ from django.urls import path, include
 
 from coworking import settings
 
-# from event.views import page_not_found
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('event.urls'))
+    path('', include('event.urls')),
+    path('account/', include('account.urls')),
 ]
 
 if settings.DEBUG:
