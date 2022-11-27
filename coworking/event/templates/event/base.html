@@ -41,7 +41,7 @@
 {% block bodyclass %}
 <body class="main-color">
 {% endblock bodyclass %}
-{% block navbar%}
+{% block navbar %}
 <div class="header">
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
@@ -69,7 +69,8 @@
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <nav class="navbar navbar-light">
-                            <a href="{% url 'login' %}">
+<!--                            <a href="{% url 'login' %}">-->
+                            <a href="{% url 'register' %}">
                                 <img src="{% static 'event/images/lkbtn.svg' %}" width="30" height="30">
                             </a>
                         </nav>
@@ -81,21 +82,24 @@
 </div>
 <br><br>
 {% endblock navbar%}
+
 {% block content%}
 {% endblock content%}
-{% block footer %}
-<footer>
-    <div class="footer-menu container">
-        <div>
-            <a class="footer-link" href="#" style="font-size: 20px;">Обратиться в тех. поддержку</a>
-            <p style="font-size: 20px;">Наш адрес:<br>г. Санкт-Петербург, ул. Чайковского, 43</p>
-        </div>
-        <div class="col-lg-3">
-            <a class="footer-link" href="#" style="font-size: 20px;">Для организаторов</a>
-        </div>
-        <a class="footer-link" href="#" style="font-size: 20px;">Для сотрудников</a>
-    </div>
-</footer>
-{% endblock footer%}
+
+<!--{% block footer %}-->
+<!--<footer>-->
+<!--    <div class="footer-menu container">-->
+<!--        <div>-->
+<!--            <a class="footer-link" href="#" style="font-size: 20px;">Обратиться в тех. поддержку</a>-->
+<!--            <p style="font-size: 20px;">Наш адрес:<br>г. Санкт-Петербург, ул. Чайковского, 43</p>-->
+<!--        </div>-->
+<!--        <div class="col-lg-3">-->
+<!--            <a class="footer-link" href="#" style="font-size: 20px;">Для организаторов</a>-->
+<!--        </div>-->
+<!--        <a class="footer-link" href="#" style="font-size: 20px;">Для сотрудников</a>-->
+<!--    </div>-->
+<!--</footer>-->
+<!--{% endblock footer%}-->
+
 </body>
 </html>

@@ -1,10 +1,12 @@
 from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-from .forms import LoginUserForm
+from .forms import LoginUserForm, RegisterUserForm
 from .models import *
 from .utils import DataMixin
 
@@ -20,8 +22,8 @@ def home_page(request):
     events = Event.objects.all()
     events_number = events.count()
     events_per_slide = 4
-    if (events_number/events_per_slide) % 1 != 0:
-        slides_number = events_number//events_per_slide + 1
+    if (events_number / events_per_slide) % 1 != 0:
+        slides_number = events_number // events_per_slide + 1
     else:
         slides_number = events_number // events_per_slide
     context = {
@@ -65,7 +67,7 @@ def events_page(request):
         'title': 'Главная страница',
         'events_per_row': events_per_row,
         'rows_range': range(rows_number),
-        'on_row_range': range(1, events_per_row+1),
+        'on_row_range': range(1, events_per_row + 1),
     }
     return render(request, 'event/Events_t.html', context=context)
 
@@ -80,8 +82,19 @@ class LoginUser(DataMixin, LoginView):
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_success_url(self):
-        return reverse_lazy('successful_auth')
-        # return reverse_lazy('home')
+        # return reverse_lazy('successful_auth')
+        return reverse_lazy('home')
+
+
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'event/reg_t.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Регистрация")
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 def logout_user(request):
