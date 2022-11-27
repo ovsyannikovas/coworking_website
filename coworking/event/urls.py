@@ -14,6 +14,6 @@ urlpatterns = [
 
     path('register/', RegisterUser.as_view(), name='register'),
     path('login/', LoginUser.as_view(), name='login'),
-    # path('logout/', logout_user, name='logout'),
+    path('logout/', logout_user, name='logout'),
     path('login/successful_auth/', successful_auth, name='successful_auth')
 ]
