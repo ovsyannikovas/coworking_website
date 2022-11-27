@@ -1,0 +1,142 @@
+main {
+	padding-bottom: 245px;
+}
+
+html{
+	height: 100%;
+} 
+
+.main-color {
+    background-color: #0F0068;
+}
+
+.other-pages{
+    background-color: white;
+}
+
+.header{
+    background-color: #0F0068;
+}
+
+.nav-item {
+    color: #FFFFFF;
+    padding-right: 70px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.navbar-brand {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    padding-right: 450px;
+    padding-left: 15px;
+
+}
+
+.images {
+    border-radius: 100px;
+    opacity: 0.5;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100%;
+	position: relative;
+}
+
+.main-text {
+    width: 415px;
+    height: 65px;
+    text-align: justify;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.default-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.default-text2{
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #0F0068;
+    text-align: justify;
+}
+
+.default-text3{
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.alignment-cent {
+    text-align: center;
+}
+
+.alignment-right {
+    text-align: right;
+}
+
+footer{
+	position: absolute;
+	color: #FFFFFF;
+	width: 100%;
+	background: #02051F;
+	flex-direction: column;
+	bottom: 0;
+	width: 100%;
+	height: 150px;
+}
+
+.footer-menu{
+    background-color: #02051F;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer-item{
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 24px;
+    display: block;
+}
+
+.footer-menu p {
+    font-weight: 450;
+    margin-top: 20px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+
+
+.capabilities{
+    background-color: #D9D9D9;
+    border-radius: 20px;
+}
+
+
+
