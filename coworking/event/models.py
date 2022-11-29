@@ -6,9 +6,9 @@ from django.urls import reverse
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=255, verbose_name="Заголовок")
+    title = models.CharField(max_length=255, verbose_name="Название мероприятия")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
-    content = models.TextField(blank=True, verbose_name="Текст статьи")
+    content = models.TextField(blank=True, verbose_name="Описание мероприятия")
     # отредактировать путь для фото?
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True, verbose_name="Фото")
     date_time = models.DateTimeField(verbose_name="Время проведения мероприятия")

@@ -8,7 +8,7 @@ from django.views.generic import CreateView
 
 from .forms import LoginUserForm, RegisterUserForm
 from .models import *
-from .utils import DataMixin
+from .utils import DataMixin, is_enrolled
 
 menu = [
     {'title': 'Организаторам', 'url_name': '...'},
@@ -107,14 +107,20 @@ def page_not_found(request, exception):
 
 
 @login_required
-def sign_up(request, event_id):
-    records = EventList.objects.filter(user=request.user, event=event_id)
-    if len(records) == 1:
-        return HttpResponse('Вы записаны (кнопка меняет цвет и содержание) НЕ ДАВАТЬ НАЖАТЬ перед этим')
-    elif len(records) == 0:
+def sign_up(request):
+    event_id = request.GET.get('event')
+    if not is_enrolled(request, event_id):
         EventList.objects.create(user=request.user, event=get_object_or_404(Event, id=event_id))
-        return HttpResponse('Вы записаны (кнопка меняет цвет и содержание)')
-    return HttpResponse('Сам проблемс')
+    return redirect('event', event_id=event_id)
+
+
+def event_page(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    context = {
+        'event': event,
+        'is_enrolled': is_enrolled(request, event_id),
+    }
+    return render(request, 'event/aboutevent_t.html', context=context)
 
 
 def successful_auth(request):
