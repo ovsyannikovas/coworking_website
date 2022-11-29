@@ -11,6 +11,7 @@ urlpatterns = [
     path('events/', events_page, name='events'), # все мероприятия
     # path('events/<slug:cat_slug>', events, name='category'),  # категория мероприятия пока функция-заглушка
     # path('event/<slug:event_slug>/', , name='event') # конкретное событие
+    path('event/<int:event_id>/signup/', sign_up, name='signup'),
 
     path('register/', RegisterUser.as_view(), name='register'),
     path('login/', LoginUser.as_view(), name='login'),

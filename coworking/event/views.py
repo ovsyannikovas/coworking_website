@@ -1,8 +1,8 @@
 from django.contrib.auth import logout
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
@@ -104,6 +104,17 @@ def logout_user(request):
 
 def page_not_found(request, exception):
     return HttpResponseNotFound
+
+
+@login_required
+def sign_up(request, event_id):
+    records = EventList.objects.filter(user=request.user, event=event_id)
+    if len(records) == 1:
+        return HttpResponse('Вы записаны (кнопка меняет цвет и содержание) НЕ ДАВАТЬ НАЖАТЬ перед этим')
+    elif len(records) == 0:
+        EventList.objects.create(user=request.user, event=get_object_or_404(Event, id=event_id))
+        return HttpResponse('Вы записаны (кнопка меняет цвет и содержание)')
+    return HttpResponse('Сам проблемс')
 
 
 def successful_auth(request):

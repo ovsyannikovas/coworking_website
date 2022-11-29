@@ -1,3 +1,5 @@
+import uuid
+
 from django.conf.global_settings import AUTH_USER_MODEL
 from django.db import models
 from django.urls import reverse
@@ -42,4 +44,19 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+        ordering = ['id']
+
+
+def get_unique_num():
+    return 0
+
+
+class EventList(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Участник")
+    event = models.ForeignKey(Event, on_delete=models.PROTECT, verbose_name="Мероприятие")
+    unique_num = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=False)
+
+    class Meta:
+        verbose_name = 'Запись на мероприятие'
+        verbose_name_plural = 'Записи на мероприятия'
         ordering = ['id']
