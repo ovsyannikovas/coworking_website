@@ -93,8 +93,16 @@ main {
 	margin: 0 auto;
 	background-color: #D9D9D9;
 	border-radius: 100px;
-	height: 1546px;
+	height: 1280px;
 	width:1076px;
+}
+
+.regcowork_form{
+	margin: 0 auto;
+	background-color: #D9D9D9;
+	border-radius: 100px;
+	height: 500px;
+	width:636px;
 }
 
 .staff_form{
@@ -103,6 +111,14 @@ main {
 	border-radius: 100px;
 	height: 370px;
 	width:636px;
+}
+
+.help_form{
+	margin: 0 auto;
+	background-color: #D9D9D9;
+	border-radius: 100px;
+	height: 650px;
+	width:1076px;
 }
 
 .form-title{
@@ -117,12 +133,13 @@ main {
 
 .forms-label{
 	padding-left: 110px;
-	padding-right: 50px;
+	padding-right: 25px;
 	color: #0F0068;
 	font-weight: 500;
 	font-size: 18px;
 	line-height: 22px;
 }
+
 
 form input{
 	display: block;
@@ -135,27 +152,49 @@ form input{
 	height: 60px;
 	background: #C6C6C6;
 	border: 2px solid #B0B0B0;
-	font-weight: 600;
+	font-weight: 400;
 	font-size: 18px;
-	line-height: 22px;
 	color: #0F0068;
 	text-indent: 30px;
 }
 
-textarea{
-	resize: vertical;
+.more, .regeventinfo{
+	margin: 0 auto;
+	width:856px;
 	margin-top: 14px;
 	margin-bottom: 50px;
-	border-radius: 100px;
-	width: 416px;
-	height: 60px;
+}
+
+.regeventinfo textarea{
+	resize: none;
+	border-radius: 50px;
+	width:856px;
+	height: 140px;
 	background: #C6C6C6;
 	border: 2px solid #B0B0B0;
-	font-weight: 600;
+	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 20px;
 	color: #0F0068;
-	text-indent: 30px;
+}
+
+.more textarea{
+	resize: none;
+	border-radius: 50px;
+	width:856px;
+	height: 300px;
+	background: #C6C6C6;
+	border: 2px solid #B0B0B0;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 20px;
+	color: #0F0068;
 }
 
 .regevent_form input{
@@ -165,7 +204,7 @@ textarea{
 form input[type="name"]:focus, form input[type="surname"]:focus,
 form input[type="datetext"]:focus, form input[type="email"]:focus,
 form input[type="password"]:focus, form input[type="login"]:focus,
-form input[type="text"]:focus{
+form input[type="text"]:focus, textarea:focus{
 	border: 2px solid rgba(15, 0, 104, 0.5);
 	outline: none;
 }
@@ -213,8 +252,8 @@ form input[type="text"]:focus{
 
 /*RADIO*/
 .radio{
-	padding-left: 30px;
-	margin-bottom: 38px;
+	margin-bottom: 30px;
+	margin-top: 20px;
 	position: relative;
 }
 
@@ -223,13 +262,6 @@ form input[type="text"]:focus{
 	-webkit-appearance: none;
 	appearance: none;
 	position: absolute;
-}
-
-.radio-label{
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 22px;
-	color: #0F0068;
 }
 
 .radio-label:before{
@@ -307,7 +339,49 @@ form input[type="text"]:focus{
 	z-index: 2;
 }
 
+.radio-label{
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #0F0068;
+}
 
+.radio-input2{
+	display: none;
+}
+
+
+.radio-label2{
+	position: relative;
+	background-color: #C6C6C6;
+	border: 2px solid #B0B0B0;
+	border-radius: 40px;
+	padding: 5px 50px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #0F0068;
+}
+
+.radio-input2:checked + .radio-label2 {
+	border: 2px solid rgba(15, 0, 104, 0.5);
+}
+
+.radio-label3{
+	position: relative;
+	background-color: #C6C6C6;
+	border: 2px solid #B0B0B0;
+	border-radius: 40px;
+	padding: 5px 20px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #0F0068;
+}
+
+.radio-input2:checked + .radio-label3 {
+	border: 2px solid rgba(15, 0, 104, 0.5);
+}
 
 
 /*CHECKBOX*/
