@@ -5,11 +5,10 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from django.views.generic.edit import ProcessFormView
 
-from .forms import LoginUserForm, RegisterUserForm, ContactForm
+from .forms import LoginUserForm, RegisterUserForm
 from .models import *
-from .utils import DataMixin, is_enrolled, send_message
+from .utils import DataMixin, is_enrolled
 
 menu = [
     {'title': 'Организаторам', 'url_name': '...'},
@@ -46,17 +45,8 @@ def contacts_page(request):
     return render(request, 'event/Contacts_t.html')
 
 
-@login_required()
 def help_page(request):
-    context = {}
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            send_message(request.user.email, form.cleaned_data['message'])
-            context['success'] = True
-    form = ContactForm()
-    context['form'] = form
-    return render(request, 'event/help_t.html', context=context)
+    return HttpResponse('Обратная связь')
 
 
 def events(request, cat_slug):
