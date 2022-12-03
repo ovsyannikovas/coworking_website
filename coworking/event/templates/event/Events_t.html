@@ -31,25 +31,25 @@
         <div style=" margin: 45px 0px;">
             <div class="row card-row">
                 {% for on_row_num in on_row_range %}
-                    {% for event in events %}
-                        {% count_id_needed row_num on_row_num events_per_row as id_needed %}
-                        {% if event.id == id_needed %}
-                            <div class="col-lg-6 event-card" style="position: relative; width: 600px;">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <img src="/coworking/event/static/event/images/iconevents.jpg" class="icon-events">
-                                    </div>
-                                    <div class="col-lg-8 ">
-                                        <div style="position: absolute;  width: 300px; margin: 0px 40px;">
-                                            <p class="default-text3" style="font-size: 22px; font-weight: 550;">{{ event.title }}</p>
-                                            <p class="default-text3" style="font-size: 20px; font-weight: 500;">{{ event.date_time }} </p>
-                                            <button class="registration-button default-text2 alignment-cent">Зарегистрироваться</button>
+                        {% for event in events %}
+                            {% count_id_needed row_num on_row_num events_per_row as id_needed %}
+                            {% if forloop.counter == id_needed %}
+                                <div class="col-lg-6 event-card" style="position: relative; width: 600px;">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img src="/coworking/event/static/event/images/iconevents.jpg" class="icon-events">
+                                        </div>
+                                        <div class="col-lg-8 ">
+                                            <div style="position: absolute;  width: 300px; margin: 0px 40px;">
+                                                <p class="default-text3" style="font-size: 22px; font-weight: 550;">{{ event.title }}</p>
+                                                <p class="default-text3" style="font-size: 20px; font-weight: 500;">{{ event.date_time }} </p>
+                                                <button class="registration-button default-text2 alignment-cent">Зарегистрироваться</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                            {% endif %}
+                        {% endfor %}
                 {% endfor %}
             </div>
         </div>
