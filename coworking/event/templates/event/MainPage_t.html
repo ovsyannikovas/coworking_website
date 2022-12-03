@@ -56,7 +56,7 @@
                             {% for event in events %}
                                 {% if forloop.counter == on_slide_num %}
                                     <div class="col-lg-3">
-                                        <a href="#">
+                                        <a href="{% url 'event' event.id %}">
                                             <div class="mycard">
                                                 <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
                                                 <div style="position: absolute;">
@@ -79,7 +79,7 @@
                                 {% count_id_needed slide_num on_slide_num events_per_slide as id_needed %}
                                 {% if forloop.counter == id_needed %}
                                     <div class="col-lg-3">
-                                        <a href="#">
+                                        <a href="{% url 'event' event.id %}">
                                             <div class="mycard">
                                                 <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
                                                 <div style="position: absolute;">
