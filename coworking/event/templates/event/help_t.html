@@ -1,0 +1,29 @@
+{% extends 'event/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'event/css/formstyle.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block bodyclass %}
+<body>
+{% endblock bodyclass %}
+
+{% block content %}
+		<form class="help_form" method="post" action="">
+			{% csrf_token %}
+			<h2 class="form-title">Техническая поддержка</h2>
+				<label for="inputtext" class="forms-label">Опишите вашу проблему</label>
+				<div class="more">
+						{{ form.message }}
+<!--						<textarea name="text" cols="40" rows="100"></textarea>-->
+				</div>
+
+				<div>
+					<button type="submit" class="first-btn">Отправить</button>
+				</div>
+			<p style="font-style: normal; font-weight: 400; font-size: 18px; text-align: center; color: #0F0068;">
+				Ответ придёт на почту, которую вы указывали при регистрации
+			</p>
+		</form>
+{% endblock content %}

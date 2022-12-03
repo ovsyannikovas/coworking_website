@@ -1,0 +1,112 @@
+{% extends 'event/base.html' %}
+{% load static %}
+{% load count_id_needed %}
+
+{% block styles %}
+<link href="{% static 'event/css/style.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block bodyclass %}
+<body class="other-pages">
+{% endblock bodyclass %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <div class="row">
+            <div class="col-lg-7">
+                <h2 class="default-text2" style="font-weight: 700; margin:0 20px">Коворкинг</h2>
+                <div class="row coworking-card" style="margin: 20px 20px;">
+                    <div class="col-lg-7">
+                        <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 20px 30px;">Запись в коворкинг</p>
+                        <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 15px 30px;">26 октября 19:30 </p>
+                        <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 30px;">Ваш ID: 1234 9876 000</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <button class="registration-button default-text2 alignment-cent" style="margin: 105px 0px; width: 200px; height: 40px;">Отмена записи</button>
+                    </div>           
+                </div>
+            </div>
+
+            <div class="col-lg-5 category-bar">
+                <button href="#" class="default-text choice-button" style="width: 400px; height: 50px; opacity: 1; font-size: 25px; font-weight: 550;margin:110px 0px">Записаться в коворкинг</button>
+            </div>
+        </div>
+    </div>
+
+    <div style=" margin: 0px 0px; ">
+        <h2 class="default-text2" style="font-weight: 700; margin:0 20px">Ваши мероприятия</h2>
+        <p class="default-text2" style="font-weight: 500; font-size: 20px; margin:5px 20px">Вы зарегистрировались на эти мероприятия</p>
+        <p class="default-text2" style="font-weight: 500; font-size: 20px; margin:5px 20px">Если вы не сможете прийти на какое-то из них, просим вас отменить запись </p>
+    </div>
+
+  {% for row_num in rows_range  %}
+        <div style="margin: 20px 0px;">
+            <div class="row card-row">
+                {% for on_row_num in on_row_range %}
+                    {% for event in events %}
+                        {% count_id_needed row_num on_row_num events_per_row as id_needed %}
+                        {% if event.id == id_needed %}
+                            <div class="col-lg-6 event-card" style="position: relative; width: 600px;">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="/coworking/event/static/event/images/iconevents.jpg" class="icon-events">
+                                    </div>
+                                    <div class="col-lg-8 ">
+                                        <div style="position: absolute;  width: 300px; margin: 0px 40px;">
+                                            <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 0px 0px;">
+                                                {{ event.event.title }}</p>
+                                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">
+                                                {{ event.event.date_time }}</p>
+                                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">Ваш ID:
+                                                {{ event.unique_num }}</p>
+                                            <button class="registration-button default-text2 alignment-cent" style="margin: 10px 0px;">Отмена регистрации</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+<!--    <div style=" margin: 50px 0px;">-->
+<!--        <div class="row card-row">-->
+<!--            <div class="col-lg-6 event-card" style="position: relative; width: 600px;">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <img src="iconevents.jpg" class="icon-events">-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-8">-->
+<!--                        <div style="position: absolute;  width: 300px; margin: 0px 40px;">-->
+<!--                            <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 0px 0px;">Начало курса лекций по основам Python </p>-->
+<!--                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">26 октября 19:30 </p>-->
+<!--                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">Ваш ID: 1234 9876 000</p>-->
+<!--                            <button class="registration-button default-text2 alignment-cent" style="margin: 10px 0px;">Отмена регистрации</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-6 event-card" style="position: relative; width: 600px;">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-4">-->
+<!--                        <img src="iconevents.jpg" class="icon-events">-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-8">-->
+<!--                        <div style="position: absolute;  width: 300px; margin: 0px 40px;">-->
+<!--                            <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 0px 0px;">Начало курса лекций по основам Python </p>-->
+<!--                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">26 октября 19:30 </p>-->
+<!--                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">Ваш ID: 1234 9876 000</p>-->
+<!--                            <button class="registration-button default-text2 alignment-cent" style="margin: 10px 0px;">Отмена регистрации</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+</div>
+{% endblock content %}

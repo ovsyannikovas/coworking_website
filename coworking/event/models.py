@@ -1,12 +1,14 @@
+import uuid
+
 from django.conf.global_settings import AUTH_USER_MODEL
 from django.db import models
 from django.urls import reverse
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=255, verbose_name="Заголовок")
+    title = models.CharField(max_length=255, verbose_name="Название мероприятия")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
-    content = models.TextField(blank=True, verbose_name="Текст статьи")
+    content = models.TextField(blank=True, verbose_name="Описание мероприятия")
     # отредактировать путь для фото?
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True, verbose_name="Фото")
     date_time = models.DateTimeField(verbose_name="Время проведения мероприятия")
@@ -42,4 +44,19 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+        ordering = ['id']
+
+
+def get_unique_num():
+    return 0
+
+
+class EventList(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Участник")
+    event = models.ForeignKey(Event, on_delete=models.PROTECT, verbose_name="Мероприятие")
+    unique_num = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=False)
+
+    class Meta:
+        verbose_name = 'Запись на мероприятие'
+        verbose_name_plural = 'Записи на мероприятия'
         ordering = ['id']
