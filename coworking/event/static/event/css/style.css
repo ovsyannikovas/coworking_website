@@ -1,5 +1,4 @@
 
-
 .main-color {
     background-color: #0F0068;
 }
@@ -35,10 +34,6 @@
     opacity: 0.5;
 }
 
-body {
-	font-family: 'Montserrat', sans-serif;
-}
-
 .box {
     width: 415px;
     height: 342px;
@@ -65,7 +60,6 @@ body {
     border: 0;
 
     color: #0F0068;
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -81,7 +75,6 @@ body {
     height: 60px;
     position: absolute;
     color: #0F0068;
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -96,7 +89,6 @@ body {
     height: 65px;
     text-align: justify;
 
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -104,7 +96,6 @@ body {
 }
 
 .default-text {
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -113,14 +104,12 @@ body {
 }
 
 .default-text2{
-    font-family: 'Montserrat';
     font-style: normal;
     color: #0F0068;
     text-align: justify;
 }
 
 .default-text3{
-    font-family: 'Montserrat';
     font-style: normal;
     color: #FFFFFF;
 }
@@ -165,6 +154,8 @@ body {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
+    width: 286px;
+    height: 180px;
 }
 
 .box-2 a{
@@ -178,7 +169,7 @@ footer{
     color: #FFFFFF;
     background: #02051F;
     display: flex;
-    height: 145px;
+    height: 150px;
     width: 100%;
 }
 
@@ -201,25 +192,14 @@ footer{
 .footer-menu p {
     font-weight: 450;
     margin-top: 20px;
+	font-size: 20px;
 }
 
 .footer-link {
     text-decoration: none;
     color: white;
     font-weight: 500;
-}
-
-.footer-link:hover {
-    color: white;
-}
-
-.footer-info{
-    display: block;
-    color: #FFFFFF;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    background-color: #02051F;
+	font-size: 20px;
 }
 
 .capabilities{
@@ -230,7 +210,6 @@ footer{
 .choice-button{
     background-color: #0F0068;
     opacity: 0.75;
-    font-family: 'Montserrat';
     font-style: normal;
     border-radius: 40px;
 }
@@ -239,6 +218,13 @@ footer{
     height: 200px;
     background-color: #4B408E;
     border-radius: 50px;
+}
+
+.coworking-card{
+    height: 175px;
+    background-color: #4B408E;
+    border-radius: 50px;
+    width: 550px;
 }
 
 .category-bar{
@@ -260,7 +246,6 @@ footer{
 }
 
 .registration-button{
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -272,3 +257,21 @@ footer{
     border: 0;
 }
 
+.event-btn{
+	position: absolute;
+	border-radius: 50px;
+	width: 306px;
+	height: 60px;
+	background: #0F0068;
+	color: #FFFFFF;
+	border: 0;
+	margin-top: 60px;
+	margin-bottom: 80px;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 27px;
+}
+
+.event-btn:hover{
+	background: rgba(15, 0, 104, 0.92);
+}
