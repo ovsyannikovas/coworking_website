@@ -52,34 +52,34 @@
         <div class="carousel-inner" style="justify-content: center;">
             <div class="carousel-item active">
                 <div class="row">
-                    {% for event in events %}
-                        {% for on_slide_num in on_slide_range %}
-                            {% if event.id == on_slide_num %}
-                                <div class="col-lg-3">
-                                    <a href="{% url 'event' event.id %}">
-                                        <div class="mycard">
-                                            <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
-                                            <div style="position: absolute;">
-                                                <p class="default-text" style="margin: 11px 10px;">{{ event.date_time }}</p>
-                                                <p class="default-text" style="margin: 110px 10px;">{{ event.title }}</p>
+                    {% for on_slide_num in on_slide_range %}
+                            {% for event in events %}
+                                {% if forloop.counter == on_slide_num %}
+                                    <div class="col-lg-3">
+                                        <a href="#">
+                                            <div class="mycard">
+                                                <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
+                                                <div style="position: absolute;">
+                                                    <p class="default-text" style="margin: 11px 10px;">{{ event.date_time }}</p>
+                                                    <p class="default-text" style="margin: 110px 10px;">{{ event.title }}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
                     {% endfor %}
                 </div>
             </div>
             {% for slide_num in inactive_slides_range  %}
                 <div class="carousel-item">
                     <div class="row">
-                        {% for event in events %}
-                            {% for on_slide_num in on_slide_range %}
+                        {% for on_slide_num in on_slide_range %}
+                            {% for event in events %}
                                 {% count_id_needed slide_num on_slide_num events_per_slide as id_needed %}
-                                {% if event.id == id_needed %}
+                                {% if forloop.counter == id_needed %}
                                     <div class="col-lg-3">
-                                        <a href="{% url 'event' event.id %}">
+                                        <a href="#">
                                             <div class="mycard">
                                                 <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
                                                 <div style="position: absolute;">

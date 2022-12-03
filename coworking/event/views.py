@@ -20,7 +20,7 @@ menu = [
 
 
 def home_page(request):
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('date_time')
     events_number = events.count()
     events_per_slide = 4
     if (events_number / events_per_slide) % 1 != 0:
@@ -33,7 +33,7 @@ def home_page(request):
         'title': 'Главная страница',
         'events_per_slide': events_per_slide,
         'inactive_slides_range': range(1, slides_number),
-        'on_slide_range': range(1, events_per_slide + 1)
+        'on_slide_range': range(1, events_per_slide + 1),
     }
     return render(request, 'event/MainPage_t.html', context=context)
 
@@ -64,9 +64,10 @@ def events(request, cat_slug):
 
 
 def events_page(request):
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('date_time')
     events_number = events.count()
     events_per_row = 2
+
     if (events_number / events_per_row) % 1 != 0:
         rows_number = events_number // events_per_row + 1
     else:
