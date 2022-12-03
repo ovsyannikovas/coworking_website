@@ -19,7 +19,7 @@ def personal_account(request):
         'inactive_slides_range': range(1, slides_number),
         'on_slide_range': range(1, events_per_slide + 1)
     }
-    return render(request, 'event/MemberPersAcc_t.html', context=context)
+    return render(request, 'account/MemberPersAcc_t.html', context=context)
 
 
 # @login_required

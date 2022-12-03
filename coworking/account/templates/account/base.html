@@ -75,9 +75,17 @@
                             <li class="nav-item">
                                 <a class="nav-link refer nav-item" href="{% url 'personal_account' %}" style="color:white">{{user.username}}</a>
                             </li>
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link refer nav-item" href="{% url 'logout' %}"-->
+<!--                                   style="color:white">Выйти</a>-->
+<!--                            </li>-->
                             {% else %}
                             <li class="nav-item">
-                            <a class="nav-link refer nav-item" href="{% url 'login' %}" style="color:white">Войти</a>
+                                <a class="nav-link refer nav-item" href="{% url 'register' %}" style="color:white">Регистрация</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link refer nav-item" href="{% url 'login' %}"
+                                   style="color:white">Войти</a>
                             </li>
                             {% endif %}
                         </nav>

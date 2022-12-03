@@ -31,3 +31,7 @@ def is_enrolled(request, event_id):
         records = EventList.objects.filter(user=request.user, event=event_id)
         return len(records) == 1
     return False
+
+
+def send_message(email, message):
+    print(f'* на почту сайта с {email} отправлено сообщение: {message} *')

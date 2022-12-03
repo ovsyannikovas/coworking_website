@@ -27,3 +27,11 @@ class RegisterUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+
+
+class ContactForm(forms.Form):
+    message = forms.CharField(
+        widget=forms.Textarea(
+            attrs={'name': "text", 'cols': '40', 'rows': '100'}
+        )
+    )
