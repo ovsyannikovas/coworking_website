@@ -26,7 +26,7 @@ class Event(models.Model):
         return reverse('event', kwargs={'event_slug': self.slug})
 
     class Meta:
-        verbose_name = 'Мероприятия'
+        verbose_name = 'Мероприятие'
         verbose_name_plural = 'Мероприятия'
         ordering = ['id']
 
