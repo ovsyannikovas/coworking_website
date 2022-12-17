@@ -12,42 +12,42 @@
 
 {% block content %}
 
-<form class="regevent_form" method="post" action="regevent.html">
+<form class="regevent_form" method="post">
+    {% csrf_token %}
+    {{ form.errors }}
     <h2 class="form-title">Информация о мероприятии</h2>
     <div>
         <label for="inputtext" class="forms-label">Название мероприятия</label>
-        <input type="text" class="forms-control" id="inputtext">
+        {{ form.title }}
+<!--        <input type="text" class="forms-control" id="inputtext">-->
     </div>
+    {{ form.date_time }}
 
     <label for="gender" class="forms-label">Тип мероприятия</label>
-    <div class="radio form-check-inline">
-        <input class="radio-input2" type="radio" name="eventtype" id="radiol">
-        <label class="radio-label2" for="radiol">Лекция</label>
-    </div>
-    <div class="radio form-check-inline">
-        <input class="radio-input2" type="radio" name="eventtype" id="radioc">
-        <label class="radio-label2" for="radioc">Мастер-класс</label>
-    </div>
-    <div class="radio form-check-inline">
-        <input class="radio-input2" type="radio" name="eventtype" id="radioh">
-        <label class="radio-label2" for="radioh">Хакатон</label>
-    </div>
+    {% for radio in form.category %}
+        <div class="radio form-check-inline">
+            {{ radio.tag }}
+            <label class="radio-label2" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+        </div>
+    {% endfor %}
 
     <div>
         <label for="inputtext" class="forms-label">ФИО выступающего, преподавателя или организатора</label>
-        <input type="text" class="forms-control" id="inputtext">
+        {{ form.organizer }}
+<!--        <input type="text" class="forms-control" id="inputtext">-->
     </div>
-    <div>
-        <label for="inputtext" class="forms-label">Основная информация о выступающем, преподавателе или
-            организаторе</label>
-        <div class="regeventinfo">
-            <textarea name="text" cols="40" rows="100"></textarea>
-        </div>
-    </div>
+<!--    <div>-->
+<!--        <label for="inputtext" class="forms-label">Основная информация о выступающем, преподавателе или-->
+<!--            организаторе</label>-->
+<!--        <div class="regeventinfo">-->
+<!--            <textarea name="text" cols="40" rows="100"></textarea>-->
+<!--        </div>-->
+<!--    </div>-->
     <div>
         <label for="inputtext" class="forms-label">Более подробная информация о мероприятии</label>
         <div class="more">
-            <textarea name="text" cols="40" rows="100"></textarea>
+            {{ form.content }}
+<!--            <textarea name="text" cols="40" rows="100"></textarea>-->
         </div>
     </div>
     <div>

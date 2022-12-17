@@ -5,9 +5,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
+from account.forms import EventRequestForm
 from account.models import *
 from event.models import *
-from event.utils import is_enrolled, DataMixin
+from event.utils import is_enrolled
 
 
 @login_required
@@ -29,20 +30,31 @@ def organizer_account(request):
     return render(request, 'account/OrgPersAcc_t.html', context=context)
 
 
-@login_required
-def create_event_request(request):
-    return render(request, 'account/regevent_t.html')
-
-
-class RegisterEvent(LoginRequiredMixin, DataMixin, CreateView):
-    form_class = EventOrgRequest
+class CreateEventRequest(LoginRequiredMixin, CreateView):
+    form_class = EventRequestForm
     template_name = 'account/regevent_t.html'
-    success_url = reverse_lazy('personal_account')
+    success_url = reverse_lazy('organizer_account')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Создание заявки на мероприятие")
-        return dict(list(context.items()) + list(c_def.items()))
+        # c_def = self.get_user_context(title="Регистрация")
+        return dict(list(context.items()))
+
+    def get_form_kwargs(self):
+        kwargs = super(CreateEventRequest, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
+
+@login_required
+def create_event_request(request):
+    context = {}
+    if request.method == 'POST':
+        form = EventOrgRequest(request.POST)
+        # send_message(request.user.email, form.cleaned_data['message'])
+    form = EventOrgRequest()
+    context['form'] = form
+    return render(request, 'account/regevent_t.html', context=context)
 
 
 @login_required

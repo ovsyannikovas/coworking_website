@@ -9,7 +9,7 @@ from django.views.generic.edit import ProcessFormView
 
 from .forms import LoginUserForm, RegisterUserForm, ContactForm
 from .models import *
-from .utils import DataMixin, is_enrolled, send_message
+from .utils import is_enrolled, send_message
 
 menu = [
     {'title': 'Организаторам', 'url_name': '...'},
@@ -83,29 +83,29 @@ def events_page(request):
     return render(request, 'event/Events_t.html', context=context)
 
 
-class LoginUser(DataMixin, LoginView):
+class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'event/auth_t.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Авторизация")
-        return dict(list(context.items()) + list(c_def.items()))
+        # c_def = self.get_user_context(title="Авторизация")
+        return dict(list(context.items()))
 
     def get_success_url(self):
         # return reverse_lazy('successful_auth')
         return reverse_lazy('home')
 
 
-class RegisterUser(DataMixin, CreateView):
+class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'event/reg_t.html'
     success_url = reverse_lazy('login')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Регистрация")
-        return dict(list(context.items()) + list(c_def.items()))
+        # c_def = self.get_user_context(title="Регистрация")
+        return dict(list(context.items()))
 
 
 def logout_user(request):
@@ -136,3 +136,24 @@ def event_page(request, event_id):
 
 def successful_auth(request):
     return render(request, 'event/successful_auth_t.html')
+
+
+def events_cat_page(request, cat_id):
+    events = Event.objects.filter(cat=cat_id).order_by('date_time')
+    events_number = events.count()
+    events_per_row = 2
+
+    if (events_number / events_per_row) % 1 != 0:
+        rows_number = events_number // events_per_row + 1
+    else:
+        rows_number = events_number // events_per_row
+    context = {
+        'events': events,
+        'menu': menu,
+        'title': 'Главная страница',
+        'events_per_row': events_per_row,
+        'rows_range': range(rows_number),
+        'on_row_range': range(1, events_per_row + 1),
+        'cat_id': cat_id,
+    }
+    return render(request, 'event/Events_t.html', context=context)

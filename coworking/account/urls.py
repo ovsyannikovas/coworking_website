@@ -6,5 +6,5 @@ urlpatterns = [
     path('personal/', personal_account, name='personal_account'),
     path('organizer/', organizer_account, name='organizer_account'),
     path('event/signdown/', sign_down, name='signdown'),
-    path('organizer/event_request', RegisterEvent.as_view(), name='event_request')
+    path('organizer/event_request', CreateEventRequest.as_view(), name='event_request')
 ]
