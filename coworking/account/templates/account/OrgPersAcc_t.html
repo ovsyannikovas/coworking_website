@@ -1,0 +1,57 @@
+{% extends 'event/base.html' %}
+{% load static %}
+{% load count_id_needed %}
+
+{% block styles %}
+<link href="{% static 'event/css/style.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block bodyclass %}
+<body class="other-pages">
+{% endblock bodyclass %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row" style="margin:20px 0px ;">
+        <div class="col-lg-6 card-row">
+            <button class="registration-button default-text2 alignment-cent" style="margin: 0px 0px;width: 600px; position: relative;">Заявки на мероприятия</button>
+        </div>
+
+        <div class="col-lg-6 card-row">
+            <button class="registration-button default-text2 alignment-cent" style="margin: 0px 0px;width: 600px; position: relative;">Предстоящие мероприятия</button>
+        </div>
+    </div>
+
+    <div style="margin-left: auto; margin-right: auto;width: 730px; height: 50px; margin-bottom: 50px;">
+        <a href="{% url 'event_request' %}" class="default-text choice-button" style="width: 730px; height: 50px; opacity: 1; font-size: 25px; font-weight: 550; padding: 10px 20px 10px 20px; text-decoration: none;">Подать заявку на проведение мероприятия</a>
+<!--        <button class="default-text choice-button" style="width: 730px; height: 50px; opacity: 1; font-size: 25px; font-weight: 550;">Подать заявку -->
+<!--            на проведение мероприятия</button>-->
+    </div>
+
+    <div style=" margin: 30px 0px; ">
+        <p class="default-text2" style="font-weight: 500; font-size: 20px; margin:0px 20px">Вы отправили заявки на проведение этих мероприятий</p>
+    </div>
+
+    <div style=" margin: 20px 0px;">
+        <div class="row card-row">
+            {% for event in events %}
+            <div class="col-lg-6 event-card" style="position: relative; width: 600px;">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="iconevents.jpg" class="icon-events">
+                    </div>
+                    <div class="col-lg-8">
+                        <div style="position: absolute;  width: 300px; margin: 0px 40px;">
+                            <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 0px 0px;">{{ event.title }} </p>
+                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 10px 0px;">{{ event.date_time }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
