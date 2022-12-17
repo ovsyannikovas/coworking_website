@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 
 from event.models import *
+from event.utils import is_enrolled
 
 
 @login_required
@@ -21,3 +22,12 @@ def personal_account(request):
 @login_required
 def organizer_account(request):
     return HttpResponse('Страница личного кабинета организатора')
+
+
+@login_required
+def sign_down(request):
+    event_id = request.GET.get('event')
+    event = get_object_or_404(Event, id=event_id)
+    event_record = get_object_or_404(EventList, event=event, user=request.user)
+    event_record.delete()
+    return redirect('personal_account')

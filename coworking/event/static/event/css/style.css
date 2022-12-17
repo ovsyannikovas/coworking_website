@@ -257,6 +257,11 @@ footer{
     background-color:#D9D9D9;
     border-radius: 50px;
     border: 0;
+    text-decoration: none;
+}
+
+.registration-button:hover{
+    text-decoration: none;
 }
 
 .event-btn{
