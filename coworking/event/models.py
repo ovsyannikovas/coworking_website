@@ -60,3 +60,15 @@ class EventList(models.Model):
         verbose_name = 'Запись на мероприятие'
         verbose_name_plural = 'Записи на мероприятия'
         ordering = ['id']
+
+
+class EventRequestList(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Участник")
+    event = models.ForeignKey(Event, on_delete=models.PROTECT, verbose_name="Мероприятие")
+    unique_num = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=False)
+    status = models.BooleanField(default=False, verbose_name="Статус")
+
+    class Meta:
+        verbose_name = 'Запись на мероприятие'
+        verbose_name_plural = 'Записи на мероприятия'
+        ordering = ['id']
