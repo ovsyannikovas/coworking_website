@@ -44,7 +44,8 @@
                                             <div style="position: absolute;  width: 300px; margin: 0px 40px;">
                                                 <p class="default-text3" style="font-size: 22px; font-weight: 550;">{{ event.title }}</p>
                                                 <p class="default-text3" style="font-size: 20px; font-weight: 500;">{{ event.date_time }} </p>
-                                                <button class="registration-button default-text2 alignment-cent">Зарегистрироваться</button>
+                                                <a class="registration-button default-text2 alignment-cent" href="{% url 'event' event_id=event.id%}">Подробнее</a>
+<!--                                                <button class="registration-button default-text2 alignment-cent">Зарегистрироваться</button>-->
                                             </div>
                                         </div>
                                     </div>
