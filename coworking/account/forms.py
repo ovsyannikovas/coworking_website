@@ -7,12 +7,6 @@ from account.models import EventOrgRequest
 
 
 class EventRequestForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        self.user_id = kwargs.pop('user').id
-        super(EventRequestForm, self).__init__(*args, **kwargs)
-        self.fields['user'].queryset = get_object_or_404(User, id=self.user_id)
-
-    user = forms.ModelMultipleChoiceField(queryset=None)
 
     CHOICES = (
         (0, 'Лекция'),
@@ -45,10 +39,7 @@ class EventRequestForm(forms.ModelForm):
                                     )
                                     )
 
-    # user = forms.ModelChoiceField(widget=forms.HiddenInput(), initial=AUTH_USER_MODEL)
-
-    # user = forms.IntegerField(widget=forms.HiddenInput(), initial=self.user.id)
 
     class Meta:
         model = EventOrgRequest
-        fields = ('title', 'content', 'category', 'organizer', 'date_time', 'user')
+        fields = ('title', 'content', 'category', 'organizer', 'date_time')

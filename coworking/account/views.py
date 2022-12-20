@@ -31,19 +31,24 @@ def organizer_account(request):
 
 
 class CreateEventRequest(LoginRequiredMixin, CreateView):
+    model = EventOrgRequest
     form_class = EventRequestForm
     template_name = 'account/regevent_t.html'
     success_url = reverse_lazy('organizer_account')
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # c_def = self.get_user_context(title="Регистрация")
-        return dict(list(context.items()))
+    def get_initial(self):
+        initial = super(CreateEventRequest, self).get_initial()
+        initial.update({'user': self.request.user})
 
-    def get_form_kwargs(self):
-        kwargs = super(CreateEventRequest, self).get_form_kwargs()
-        kwargs.update({'user': self.request.user})
-        return kwargs
+        return initial
+
+    def form_valid(self, form):
+        """Force the user to request.user"""
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+
+        return super(CreateEventRequest, self).form_valid(form)
 
 
 @login_required
