@@ -30,5 +30,4 @@ class EventListAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Event, EventAdmin)
-admin.site.register(Category, CategoryAdmin)
 admin.site.register(EventList, EventListAdmin)
