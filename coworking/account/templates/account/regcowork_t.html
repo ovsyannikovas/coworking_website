@@ -1,0 +1,41 @@
+{% extends 'event/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'event/css/style.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block bodyclass %}
+<body class="other-pages">
+{% endblock bodyclass %}
+
+{% block content %}
+	<main>
+				<form class="regcowork_form" method="post">
+                    {% csrf_token %}
+					<h2 class="form-title">Регистрация в коворкинг</h2>
+                    {{ form.non_field_errors }}
+					<div>
+						<label for="inputdate" class="forms-label">Дата</label>
+						<input type="datetext" class="forms-control" id="inputdate">
+					</div>
+					<label for="coworktime" class="forms-label">Диапазон времени</label><br>
+					<div class="radio form-check-inline" style="padding-left: 70px;">
+						<input class="radio-input2" type="radio" name="coworktime" id="radiom">
+						<label class="radio-label3" for="radiom">11:00 – 14:00</label>
+					</div>
+					<div class="radio form-check-inline">
+						<input class="radio-input2" type="radio" name="coworktime" id="radioa">
+						<label class="radio-label3" for="radioa">14:00 – 17:00</label>
+					</div>
+					<div class="radio form-check-inline">
+						<input class="radio-input2" type="radio" name="coworktime" id="radioe">
+						<label class="radio-label3" for="radioe">17:00 – 20:00</label>
+					</div>
+					<div>
+						<button type="submit" class="first-btn">Регистрация</button>
+					</div>
+				</form>
+	</main>
+{% endblock content %}
+
