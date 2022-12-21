@@ -45,16 +45,17 @@
 }
 
 .box a {
-    margin: 2px 0px 0px 285px;
-    width: 130px;
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: 400;
+    /*margin: 2px 0px 0px 285px;*/
+    /*width: 130px;*/
+    /*color: #FFFFFF;*/
+    /*font-size: 18px;*/
+    /*font-weight: 400;*/
 }
 
 .butt1 {
     margin: 84px 0px 0px 57px;
-    width: 300px;
+    width: 80%;
+    /*width: 300px;*/
     height: 60px;
     position: absolute;
     border: 0;
@@ -67,6 +68,16 @@
 
     background-color: #FFFFFF;
     border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 3%;
+}
+
+.butt1:hover {
+    text-decoration: none;
+    color: #0F0068;
+    background-color: lightgray;
+    transition: background-color 1s ease;
 }
 
 .butt2 {
