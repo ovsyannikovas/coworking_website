@@ -10,7 +10,7 @@ from account.models import *
 from event.models import *
 from account.models import *
 from .forms import CoworkingForm
-from event.utils import is_enrolled
+from event.utils import is_enrolled, is_enrolled_to_coworking, get_coworking_obj
 
 
 @login_required
@@ -38,6 +38,8 @@ def personal_account(request):
         'events_per_row': events_per_row,
         'rows_range': range(1, rows_number),
         'on_row_range': range(1, events_per_row + 1),
+        'is_enrolled': is_enrolled_to_coworking(request),
+        'coworking_booked': get_coworking_obj(request)
     }
     return render(request, 'account/MemberPersAcc_t.html', context=context)
 
@@ -126,4 +128,12 @@ def sign_down(request):
     event = get_object_or_404(Event, id=event_id)
     event_record = get_object_or_404(EventList, event=event, user=request.user)
     event_record.delete()
+    return redirect('personal_account')
+
+
+@login_required
+def sign_down_coworking(request):
+    coworking_id = request.GET.get('cow')
+    coworking_record = get_object_or_404(Coworking, id=coworking_id)
+    coworking_record.delete()
     return redirect('personal_account')
