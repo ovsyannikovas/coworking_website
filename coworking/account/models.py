@@ -22,7 +22,7 @@ class Coworking(models.Model):
         verbose_name = 'Интервал'
         verbose_name_plural = 'Интервалы'
         ordering = ['id']
-        return self.date_time
+        # return self.date_time
 
 
 class EventOrgRequest(models.Model):

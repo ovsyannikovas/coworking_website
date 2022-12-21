@@ -14,9 +14,9 @@ class CoworkingForm(forms.ModelForm):
     TIME_CHOICES = ['11:00', '14:00', '17:00']
     time = forms.TimeField(widget=forms.RadioSelect(choices=TIME_CHOICES))
 
-    #def __init__(self, *args, **kwargs):
-     #   self.user = kwargs.pop('user', None)
-      #  super(CoworkingForm, self).__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #   self.user = kwargs.pop('user', None)
+    #  super(CoworkingForm, self).__init__(*args, **kwargs)
 
     def save(self, user):
         date_time = datetime.datetime(self.cleaned_data['date'].year, self.cleaned_data['date'].month,
@@ -30,9 +30,7 @@ class CoworkingForm(forms.ModelForm):
         fields = ('date_time', 'user')
 
 
-
 class EventRequestForm(forms.ModelForm):
-
     CHOICES = (
         (0, 'Лекция'),
         (1, 'Мастер-класс'),
@@ -64,8 +62,6 @@ class EventRequestForm(forms.ModelForm):
                                     )
                                     )
 
-
     class Meta:
         model = EventOrgRequest
         fields = ('title', 'content', 'category', 'organizer', 'date_time')
-
