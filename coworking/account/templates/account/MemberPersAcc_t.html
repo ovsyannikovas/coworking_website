@@ -3,6 +3,7 @@
 {% load count_id_needed %}
 
 
+
 {% block styles %}
 <link href="{% static 'event/css/style.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles %}
@@ -11,6 +12,7 @@
 {% block bodyclass %}
 <body class="other-pages">
 {% endblock bodyclass %}
+
 
 
 {% block content %}
@@ -53,58 +55,27 @@
 
     <div style=" margin: 20px 0px;">
         <div class="row card-row">
-            {% for on_row_num in on_row_range %}
                 {% for event in events %}
-                    {% if forloop.counter == on_row_num %}
-                        <div class="col-lg-6 event-card" style="position: relative; width: 600px;">
+                        <div class="col-lg-6 event-card" style="position: relative; width: 600px; margin-bottom: 15px">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <img src={% static '/images/iconevents.jpg' %} class="icon-events">
+                                    <img src="{% static '/images/iconevents.jpg' %}" class="icon-events">
                                 </div>
                                 <div class="col-lg-8">
                                     <div style="position: absolute;  width: 300px; margin: 0px 40px;">
-                                        <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 0px 0px;">{{ event.title }} </p>
-                                        <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">{{ event.date_time }} </p>
-                                        <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">Ваш ID: 1234 9876 000</p>
-                                        <button class="registration-button default-text2 alignment-cent" style="margin: 10px 0px;">Отмена регистрации</button>
+                                        <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 0px 0px;">{{ event.event.title }} </p>
+                                        <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">{{ event.event.date_time }} </p>
+                                        <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">Ваш ID: {{ event.unique_num }}</p>
+                                        <a href="{% url 'signdown' %}?event={{ event.event.id }}" class="registration-button default-text2 alignment-cent" style="margin: 10px 0px; text-decoration: none;">Отмена регистрации</a>
+<!--                                        <button class="registration-button default-text2 alignment-cent" style="margin: 10px 0px;">Отмена регистрации</button>-->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    {% endif %}
                 {% endfor %}
-            {% endfor %}
         </div>
     </div>
-
-    {% for row_num in rows_range  %}
-        <div style=" margin: 50px 0px;">
-            <div class="row card-row">
-                {% for on_row_num in on_row_range %}
-                    {% for event in events %}
-                        {% count_id_needed row_num on_row_num events_per_row as id_needed %}
-                        {% if forloop.counter == id_needed %}
-                            <div class="col-lg-6 event-card" style="position: relative; width: 600px;">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <img src={% static '/images/iconevents.jpg' %} class="icon-events">
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div style="position: absolute;  width: 300px; margin: 0px 40px;">
-                                            <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 0px 0px;">{{ event.title }} </p>
-                                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">{{ event.date_time }} </p>
-                                            <p class="default-text3" style="font-size: 20px; font-weight: 400; margin: 0px 0px;">Ваш ID: 1234 9876 000</p>
-                                            <button class="registration-button default-text2 alignment-cent" style="margin: 10px 0px;">Отмена регистрации</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-            </div>
-        </div>
-    {% endfor %}
 </div>
 {% endblock content %}
+
 

@@ -9,7 +9,7 @@ urlpatterns = [
     path('help/', help_page, name='help'),  # страница обращения в поддержку
 
     path('events/', events_page, name='events'), # все мероприятия
-    # path('events/<slug:cat_slug>', events, name='category'),  # категория мероприятия пока функция-заглушка
+    path('events/<int:cat_id>', events_cat_page, name='category'),
     path('event/<int:event_id>/', event_page, name='event'), # конкретное событие
     path('event/signup/', sign_up, name='signup'),
 

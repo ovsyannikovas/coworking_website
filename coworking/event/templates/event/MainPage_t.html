@@ -1,5 +1,5 @@
 {% extends 'event/base.html' %}
-{% load static%}
+{% load static %}
 {% load count_id_needed %}
 
 {% block content %}
@@ -10,7 +10,8 @@
                 <h1>CoWork</h1>
                 <p class="main-text">Учитесь и работайте с удовольствием в светлых и уютных помещениях, где есть всё
                     необходимое.</p>
-                <button class="butt1">Регистрация</button>
+<!--                <button class="butt1">Регистрация</button>-->
+                <a class="butt1" href="{% url 'personal_account' %}">Регистрация</a>
             </div>
             <img src="{% static 'event/images/mainpage2.jpg' %}" width="636" height="420" class="images" style="position:relative; z-index: 1;">
         </div>
@@ -19,7 +20,8 @@
                 <h1>Learn</h1>
                 <p class="main-text">Ходите на бесплатные интересные лекции и мастер-классы, участвуйте в хакатонах и
                     учитесь новому.</p>
-                <button class="butt2" href="{% url 'events' %}">Перейти к мероприятиям</button>
+                <a class="butt2" href="{% url 'events' %}">Перейти к мероприятиям</a>
+<!--                <button class="butt2" href="{% url 'events' %}">Перейти к мероприятиям</button>-->
             </div>
             <img src="{% static 'event/images/mainpage1.jpg' %}" width="636" height="420" class="images" style="position:relative; z-index: 1;">
         </div>

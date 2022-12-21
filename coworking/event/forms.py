@@ -35,3 +35,5 @@ class ContactForm(forms.Form):
             attrs={'name': "text", 'cols': '40', 'rows': '100'}
         )
     )
+
+

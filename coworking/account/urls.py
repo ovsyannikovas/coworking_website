@@ -6,4 +6,6 @@ urlpatterns = [
     path('personal/', personal_account, name='personal_account'),
     path('organizer/', organizer_account, name='organizer_account'),
     path('coworking/', coworking, name='coworking')
+    path('event/signdown/', sign_down, name='signdown'),
+    path('organizer/event_request', CreateEventRequest.as_view(), name='event_request')
 ]

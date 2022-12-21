@@ -1,0 +1,62 @@
+{% extends 'event/base.html' %}
+{% load static %}
+{% load count_id_needed %}
+
+{% block styles %}
+<link href="{% static 'event/css/formstyle.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block bodyclass %}
+<body>
+{% endblock bodyclass %}
+
+{% block content %}
+
+<form class="regevent_form" method="post">
+    {% csrf_token %}
+    {{ form.errors }}
+    <h2 class="form-title">Информация о мероприятии</h2>
+    <div>
+        <label for="inputtext" class="forms-label">Название мероприятия</label>
+        {{ form.title }}
+<!--        <input type="text" class="forms-control" id="inputtext">-->
+    </div>
+    {{ form.date_time }}
+
+    <label for="gender" class="forms-label">Тип мероприятия</label>
+    {% for radio in form.category %}
+        <div class="radio form-check-inline">
+            {{ radio.tag }}
+            <label class="radio-label2" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+        </div>
+    {% endfor %}
+
+    <div>
+        <label for="inputtext" class="forms-label">ФИО выступающего, преподавателя или организатора</label>
+        {{ form.organizer }}
+<!--        <input type="text" class="forms-control" id="inputtext">-->
+    </div>
+<!--    <div>-->
+<!--        <label for="inputtext" class="forms-label">Основная информация о выступающем, преподавателе или-->
+<!--            организаторе</label>-->
+<!--        <div class="regeventinfo">-->
+<!--            <textarea name="text" cols="40" rows="100"></textarea>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div>
+        <label for="inputtext" class="forms-label">Более подробная информация о мероприятии</label>
+        <div class="more">
+            {{ form.content }}
+<!--            <textarea name="text" cols="40" rows="100"></textarea>-->
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="first-btn">Подать заявку</button>
+    </div>
+    <p style="font-style: normal; font-weight: 400; font-size: 18px; text-align: center; color: #0F0068;">
+        Статус заявки можно отследить в личном кабинете<br>
+        Если мероприятие одобрят, вам также придёт письмо на почту
+    </p>
+</form>
+
+{% endblock content %}
