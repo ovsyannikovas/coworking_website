@@ -7,10 +7,10 @@ from event.models import *
 
 
 class Coworking(models.Model):
-    date_time = models.DateTimeField(unique=True, verbose_name="Время начала забронированного интервала", )
-    #date = models.DateField(verbose_name="Дата, на которую бронируется коворкинг",)
-    #time = models.TimeField(verbose_name="Время, на которое бронируется коворкинг",)
-    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Бронирующий")
+    # date_time = models.DateTimeField(unique=True, verbose_name="Время начала забронированного интервала", )
+    date = models.DateField(verbose_name="Дата, на которую бронируется коворкинг", null=True)
+    time = models.TimeField(verbose_name="Время, на которое бронируется коворкинг", null=True)
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Бронирующий", null=True)
     #time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время записи")
     #time_update = models.DateTimeField(auto_now=True, verbose_name="Время изменения параметров записи")
     unique_num = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=False)
@@ -22,7 +22,10 @@ class Coworking(models.Model):
         verbose_name = 'Интервал'
         verbose_name_plural = 'Интервалы'
         ordering = ['id']
+
         #return self.date_time
+
+
 
 
 class EventOrgRequest(models.Model):

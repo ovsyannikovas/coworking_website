@@ -27,26 +27,41 @@ def personal_account(request):
     else:
         rows_number = events_number // events_per_row
 
-    if (cow_signs_number / cow_signs_per_row) % 1 != 0:
-        cow_rows_number = cow_signs_number // cow_signs_per_row + 1
-    else:
-        cow_rows_number = cow_signs_number // cow_signs_per_row
+    # events_number = events.count()
+    # events_per_row = 2
+    # cow_inacc = Coworking.objects.exclude(user=request.user)
+    # cow_booked = Coworking.objects.filter(user=request.user)
+    # cow_signs_number = cow_booked.count()
+    # cow_signs_per_row = 2
+    # if (events_number / events_per_row) % 1 != 0:
+    #     rows_number = events_number // events_per_row + 1
+    # else:
+    #     rows_number = events_number // events_per_row
+    #
+    # if (cow_signs_number / cow_signs_per_row) % 1 != 0:
+    #     cow_rows_number = cow_signs_number // cow_signs_per_row + 1
+    # else:
+    #     cow_rows_number = cow_signs_number // cow_signs_per_row
 
 
-    #rows_number = events_number // events_per_row + (events_number % events_per_row)
+    # rows_number = events_number // events_per_row + (events_number % events_per_row)
     context = {
         'events': events,
-        'events_per_row': events_per_row,
-        'rows_range': range(1, rows_number),
-        'on_row_range': range(1, events_per_row + 1),
+        # 'events_per_row': events_per_row,
+        # 'rows_range': range(1, rows_number),
+        # 'on_row_range': range(1, events_per_row + 1),
     }
     return render(request, 'account/MemberPersAcc_t.html', context=context)
 
 
 @login_required
 def organizer_account(request):
-    return HttpResponse('Страница личного кабинета организатора')
+    events = EventOrgRequest.objects.filter(user=request.user)
+    context = {'events': events, }
+    return render(request, 'account/OrgPersAcc_t.html', context=context)
 
+
+@login_required
 def coworking(request):
     cows = Coworking.objects.all()
     form = CoworkingForm()
@@ -55,15 +70,42 @@ def coworking(request):
         form.save(request, request.user)
     else:
         personal_account(request)
+    if request.method == 'POST':
+        form = CoworkingForm(request.POST)
+    form = CoworkingForm()
+    # if form.is_valid():
+    #     form.save(request)
+
     context = {
-        'cows': cows,
+        # 'cows': cows,
         'form': form,
     }
     return render(request, 'account/regcowork_t.html', context=context)
 
-    events = EventOrgRequest.objects.filter(user=request.user)
-    context = {'events': events, }
-    return render(request, 'account/OrgPersAcc_t.html', context=context)
+    # events = EventOrgRequest.objects.filter(user=request.user)
+    # context = {'events': events, }
+    # return render(request, 'account/OrgPersAcc_t.html', context=context)
+
+
+class CreateCoworkingRequest(LoginRequiredMixin, CreateView):
+    model = Coworking
+    form_class = CoworkingForm
+    template_name = 'account/regcowork_t.html'
+    success_url = reverse_lazy('personal_account')
+
+    def get_initial(self):
+        initial = super(CreateCoworkingRequest, self).get_initial()
+        initial.update({'user': self.request.user})
+
+        return initial
+
+    def form_valid(self, form):
+        """Force the user to request.user"""
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+
+        return super(CreateCoworkingRequest, self).form_valid(form)
 
 
 class CreateEventRequest(LoginRequiredMixin, CreateView):
@@ -105,4 +147,3 @@ def sign_down(request):
     event_record = get_object_or_404(EventList, event=event, user=request.user)
     event_record.delete()
     return redirect('personal_account')
-
