@@ -10,24 +10,33 @@ from account.models import EventOrgRequest
 
 
 class CoworkingForm(forms.ModelForm):
-    date = forms.DateField()
-    TIME_CHOICES = ['11:00', '14:00', '17:00']
-    time = forms.TimeField(widget=forms.RadioSelect(choices=TIME_CHOICES))
+    date = forms.DateField(input_formats=['%d.%m.%Y'], widget=forms.DateTimeInput(format='%d.%m.%Y',
+                                                                                  attrs={'type': "datetext",
+                                                                                         'class': "forms-control",
+                                                                                         'id': "inputdate"}))
+    TIME_CHOICES = [
+        ('11:00', '11:00 - 14:00'),
+        ('14:00', '14:00 - 17:00'),
+        ('17:00', '17:00 - 19:00'),
+    ]
+    time = forms.TimeField(widget=forms.RadioSelect(choices=TIME_CHOICES,
+                                                    attrs={'class': "radio-input2", 'type': "radio",
+                                                           'name': "coworktime"}))
 
     # def __init__(self, *args, **kwargs):
     #   self.user = kwargs.pop('user', None)
     #  super(CoworkingForm, self).__init__(*args, **kwargs)
 
-    def save(self, user):
-        date_time = datetime.datetime(self.cleaned_data['date'].year, self.cleaned_data['date'].month,
-                                      self.cleaned_data['date'].day, self.cleaned_data['time'].hour,
-                                      self.cleaned_data['time'].minute, 0)
-        new_book = Coworking.objects.create(date_time=date_time, user=user)
-        return new_book
+    # def save(self, user):
+    #     date_time = datetime.datetime(self.cleaned_data['date'].year, self.cleaned_data['date'].month,
+    #                                   self.cleaned_data['date'].day, self.cleaned_data['time'].hour,
+    #                                   self.cleaned_data['time'].minute, 0)
+    #     new_book = Coworking.objects.create(date_time=date_time, user=user)
+    #     return new_book
 
     class Meta:
         model = Coworking
-        fields = ('date_time', 'user')
+        fields = ('date', 'time')
 
 
 class EventRequestForm(forms.ModelForm):
