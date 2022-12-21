@@ -18,7 +18,7 @@ def personal_account(request):
     events = EventList.objects.filter(user=request.user)
     events_number = events.count()
     events_per_row = 2
-    cow_inacc = Coworking.objects.exclude(user=request.user)
+    #cow_inacc = Coworking.objects.exclude(user=request.user)
     cow_booked = Coworking.objects.filter(user=request.user)
     cow_signs_number = cow_booked.count()
     cow_signs_per_row = 2
@@ -49,10 +49,12 @@ def organizer_account(request):
 
 def coworking(request):
     cows = Coworking.objects.all()
-    #form = CoworkingForm(user=request.user)
     form = CoworkingForm()
+    #form = CoworkingForm()
     if form.is_valid():
-        form.save(request)
+        form.save(request, request.user)
+    else:
+        personal_account(request)
     context = {
         'cows': cows,
         'form': form,
