@@ -19,7 +19,6 @@ class Event(models.Model):
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True, verbose_name="Фото")
     date_time = models.DateTimeField(verbose_name="Время проведения мероприятия")
     organizer = models.CharField(max_length=255, verbose_name="Организатор")
-    # organizer = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, verbose_name="Организатор")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Время изменения")
     is_published = models.BooleanField(default=True, verbose_name="Публикация")

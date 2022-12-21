@@ -45,7 +45,10 @@ def personal_account(request):
 
 @login_required
 def organizer_account(request):
-    return HttpResponse('Страница личного кабинета организатора')
+    events = EventOrgRequest.objects.filter(user=request.user)
+    context = {'events': events, }
+    return render(request, 'account/OrgPersAcc_t.html', context=context)
+
 
 def coworking(request):
     cows = Coworking.objects.all()
