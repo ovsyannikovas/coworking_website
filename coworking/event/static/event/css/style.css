@@ -275,7 +275,7 @@ footer{
 .registration-button:hover{
     text-align-all: center;
     text-decoration: none;
-    color: #1b1b1b;
+    color: #0F0068;
     background-color: darkgray;
     transition: background-color 1s ease;
 }
@@ -302,6 +302,7 @@ footer{
 	background: rgba(15, 0, 104, 0.92);
     text-decoration: none;
     color: #FFFFFF;
+    transition: background-color 0.5s ease;
 }
 
 .event-btn-gray {
@@ -320,4 +321,9 @@ footer{
 	font-weight: 600;
 	font-size: 22px;
 	line-height: 27px;
+}
+
+.miau {
+    display: flex;
+    justify-content: center;
 }
