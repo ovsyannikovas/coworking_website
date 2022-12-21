@@ -212,6 +212,17 @@ footer{
     opacity: 0.75;
     font-style: normal;
     border-radius: 40px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.choice-button:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #4B408E;
+    transition: background-color 1s ease;
 }
 
 .event-card{
@@ -248,6 +259,7 @@ footer{
 }
 
 .registration-button{
+    padding-top: 5px;
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -261,7 +273,11 @@ footer{
 }
 
 .registration-button:hover{
+    text-align-all: center;
     text-decoration: none;
+    color: #1b1b1b;
+    background-color: darkgray;
+    transition: background-color 1s ease;
 }
 
 .event-btn{
