@@ -21,7 +21,11 @@
         {{ form.title }}
 <!--        <input type="text" class="forms-control" id="inputtext">-->
     </div>
-    {{ form.date_time }}
+        <div>
+        <label for="inputtext" class="forms-label">Дата</label>
+        {{ form.date_time }}
+    </div>
+
 
     <label for="gender" class="forms-label">Тип мероприятия</label>
     {% for radio in form.category %}
@@ -60,3 +64,6 @@
 </form>
 
 {% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

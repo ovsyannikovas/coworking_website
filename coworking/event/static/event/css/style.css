@@ -213,6 +213,12 @@ footer{
 	font-size: 20px;
 }
 
+.footer-link:hover {
+    text-decoration: none;
+    color: gray;
+    transition: color 1s ease;
+}
+
 .capabilities{
     background-color: #D9D9D9;
     border-radius: 20px;
@@ -338,3 +344,4 @@ footer{
     display: flex;
     justify-content: center;
 }
+

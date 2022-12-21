@@ -93,20 +93,20 @@
 {% block content%}
 {% endblock content%}
 
-<!--{% block footer %}-->
-<!--<footer>-->
-<!--    <div class="footer-menu container">-->
-<!--        <div>-->
-<!--            <a class="footer-link" href="#" style="font-size: 20px;">Обратиться в тех. поддержку</a>-->
-<!--            <p style="font-size: 20px;">Наш адрес:<br>г. Санкт-Петербург, ул. Чайковского, 43</p>-->
-<!--        </div>-->
-<!--        <div class="col-lg-3">-->
-<!--            <a class="footer-link" href="#" style="font-size: 20px;">Для организаторов</a>-->
-<!--        </div>-->
+{% block footer %}
+<footer>
+    <div class="footer-menu container">
+        <div>
+            <a class="footer-link" href="{% url 'help' %}" style="font-size: 20px;">Обратиться в тех. поддержку</a>
+            <p style="font-size: 20px;">Наш адрес:<br>г. Санкт-Петербург, ул. Чайковского, 43</p>
+        </div>
+        <div class="col-lg-3">
+            <a class="footer-link" href="{% url 'organizer_account' %}" style="font-size: 20px;">Для организаторов</a>
+        </div>
 <!--        <a class="footer-link" href="#" style="font-size: 20px;">Для сотрудников</a>-->
-<!--    </div>-->
-<!--</footer>-->
-<!--{% endblock footer%}-->
+    </div>
+</footer>
+{% endblock footer%}
 
 </body>
 </html>

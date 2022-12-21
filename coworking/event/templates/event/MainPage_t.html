@@ -58,7 +58,7 @@
                             {% for event in events %}
                                 {% if forloop.counter == on_slide_num %}
                                     <div class="col-lg-3">
-                                        <a href="{% url 'event' event.id %}">
+                                        <a href="{% url 'event' event.id %}" class="card-link">
                                             <div class="mycard">
                                                 <img class="card-img-top carousel-images" src="https://dummyimage.com/286x180/ccc/fff" style="border-radius: 20px;">
                                                 <div style="position: absolute;">
