@@ -74,6 +74,8 @@
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link refer nav-item" href="{% url 'personal_account' %}" style="color:white">{{user.username}}</a>
+                                <a class="nav-link refer nav-item" href="{% url 'logout' %}"
+                                   style="color:white">Выйти</a>
                             </li>
                             {% else %}
                             <li class="nav-item">
