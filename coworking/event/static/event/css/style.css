@@ -45,16 +45,17 @@
 }
 
 .box a {
-    margin: 2px 0px 0px 285px;
-    width: 130px;
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: 400;
+    /*margin: 2px 0px 0px 285px;*/
+    /*width: 130px;*/
+    /*color: #FFFFFF;*/
+    /*font-size: 18px;*/
+    /*font-weight: 400;*/
 }
 
 .butt1 {
     margin: 84px 0px 0px 57px;
-    width: 300px;
+    width: 80%;
+    /*width: 300px;*/
     height: 60px;
     position: absolute;
     border: 0;
@@ -67,6 +68,16 @@
 
     background-color: #FFFFFF;
     border-radius: 30px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 3%;
+}
+
+.butt1:hover {
+    text-decoration: none;
+    color: #0F0068;
+    background-color: lightgray;
+    transition: background-color 1s ease;
 }
 
 .butt2 {
@@ -202,6 +213,12 @@ footer{
 	font-size: 20px;
 }
 
+.footer-link:hover {
+    text-decoration: none;
+    color: gray;
+    transition: color 1s ease;
+}
+
 .capabilities{
     background-color: #D9D9D9;
     border-radius: 20px;
@@ -212,6 +229,17 @@ footer{
     opacity: 0.75;
     font-style: normal;
     border-radius: 40px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.choice-button:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #4B408E;
+    transition: background-color 1s ease;
 }
 
 .event-card{
@@ -248,6 +276,7 @@ footer{
 }
 
 .registration-button{
+    padding-top: 5px;
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -261,7 +290,11 @@ footer{
 }
 
 .registration-button:hover{
+    text-align-all: center;
     text-decoration: none;
+    color: #0F0068;
+    background-color: darkgray;
+    transition: background-color 1s ease;
 }
 
 .event-btn{
@@ -286,6 +319,7 @@ footer{
 	background: rgba(15, 0, 104, 0.92);
     text-decoration: none;
     color: #FFFFFF;
+    transition: background-color 0.5s ease;
 }
 
 .event-btn-gray {
@@ -305,3 +339,9 @@ footer{
 	font-size: 22px;
 	line-height: 27px;
 }
+
+.miau {
+    display: flex;
+    justify-content: center;
+}
+

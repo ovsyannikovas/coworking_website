@@ -1,3 +1,6 @@
+from django.shortcuts import get_object_or_404
+
+from account.models import Coworking
 from .models import *
 from django.db.models import Count
 
@@ -26,6 +29,21 @@ def is_enrolled(request, event_id):
         records = EventList.objects.filter(user=request.user, event=event_id)
         return len(records) == 1
     return False
+
+
+def is_enrolled_to_coworking(request):
+    if request.user.is_authenticated:
+        records = Coworking.objects.filter(user=request.user)
+        return len(records) == 1
+    return False
+
+
+def get_coworking_obj(request):
+    if is_enrolled_to_coworking(request):
+        return get_object_or_404(Coworking, user=request.user)
+    else:
+        return None
+    # record = Coworking.objects.filter(user=request.user)
 
 
 def send_message(email, message):
