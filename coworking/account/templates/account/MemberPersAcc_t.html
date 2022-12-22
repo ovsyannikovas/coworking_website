@@ -1,6 +1,5 @@
 {% extends 'event/base.html' %}
 {% load static %}
-{% load count_id_needed %}
 
 
 
@@ -19,13 +18,9 @@
 <div class="container">
     <h2 class="default-text2" style="font-weight: 700; margin:0 20px">Коворкинг</h2>
     <div>
-        {% for cow_row_num in cow_rows_range  %}
             <div class="row">
                 <div class="col-lg-7">
-                    {% for cow_on_row_num in cow_on_row_range %}
                         {% for cow_booked_sign in cow_booked %}
-                            {% count_id_needed cow_row_num cow_on_row_num cow_signs_per_row as id_needed %}
-                            {% if forloop.counter == id_needed %}
                                 <div class="row coworking-card" style="margin: 20px 20px;">
                                     <div class="col-lg-7">
                                         <p class="default-text3" style="font-size: 22px; font-weight: 550; margin: 20px 30px;">Запись в коворкинг</p>
@@ -36,12 +31,10 @@
                                         <button class="registration-button default-text2 alignment-cent" style="margin: 105px 0px; width: 200px; height: 40px;">Отмена записи</button>
                                     </div>
                                 </div>
-                            {% endif %}
                         {% endfor %}
-                    {% endfor %}
                 </div>
             </div>
-        {% endfor %}
+
         <div class="col-lg-5 category-bar">
             <a href="{% url 'coworking' %}" class="default-text choice-button" style="width: 400px; height: 50px; opacity: 1; font-size: 25px; font-weight: 550;margin:110px 0px">Записаться в коворкинг</a>
         </div>

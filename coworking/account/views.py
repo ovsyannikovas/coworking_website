@@ -20,12 +20,12 @@ def personal_account(request):
     events_per_row = 2
     #cow_inacc = Coworking.objects.exclude(user=request.user)
     cow_booked = Coworking.objects.filter(user=request.user)
-    cow_signs_number = cow_booked.count()
-    cow_signs_per_row = 2
-    if (events_number / events_per_row) % 1 != 0:
-        rows_number = events_number // events_per_row + 1
-    else:
-        rows_number = events_number // events_per_row
+    #cow_signs_number = cow_booked.count()
+    #cow_signs_per_row = 2
+    #if (events_number / events_per_row) % 1 != 0:
+    #    rows_number = events_number // events_per_row + 1
+    #else:
+    #    rows_number = events_number // events_per_row
 
     # events_number = events.count()
     # events_per_row = 2
@@ -50,6 +50,7 @@ def personal_account(request):
         # 'events_per_row': events_per_row,
         # 'rows_range': range(1, rows_number),
         # 'on_row_range': range(1, events_per_row + 1),
+        'cow_booked': cow_booked,
     }
     return render(request, 'account/MemberPersAcc_t.html', context=context)
 
