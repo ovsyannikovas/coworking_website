@@ -10,10 +10,10 @@
 {% endblock bodyclass %}
 
 {% block content %}
+{{ form.errors }}
 <form class="auth_form" method="post">
     {% csrf_token %}
     <h2 class="form-title">Вход</h2>
-    {{ form.non_field_errors }}
     <div>
         <label for="inputlogin" class="forms-label">{{ form.username.label }}</label>
         {{ form.username }}

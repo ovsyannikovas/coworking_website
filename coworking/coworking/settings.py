@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'event.apps.EventConfig',
     'account.apps.AccountConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +140,10 @@ AUTHENTICATION_BACKENDS = (
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPH_MODELS = {
+  'all_applications': True,
+}
 
 try:
     from .local_settings import *
